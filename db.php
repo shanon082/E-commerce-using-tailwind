@@ -3,8 +3,8 @@
 // Using MySQL-like configuration for simplicity
 $host = "localhost";
 $dbname = "ecommerce";
-$username = "admin";
-$password = "password";
+$username = "root";
+$password = "";
 
 try {
     // Create a PDO instance simulating a localhost XAMPP-like connection
