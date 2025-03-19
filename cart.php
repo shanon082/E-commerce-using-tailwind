@@ -115,7 +115,7 @@ if (!empty($_SESSION['cart'])) {
         
         /* Price animation on update */
         @keyframes priceUpdate {
-            0% { color: #f97316; }
+            0% { color: #3b82f6; }
             100% { color: inherit; }
         }
         
@@ -146,7 +146,7 @@ if (!empty($_SESSION['cart'])) {
                 </div>
                 <h2 class="text-xl font-medium mb-4">Your cart is empty</h2>
                 <p class="text-gray-600 mb-6">Looks like you haven't added anything to your cart yet.</p>
-                <a href="index.php" class="bg-orange-500 hover:bg-orange-600 text-white py-2 px-6 rounded-md inline-block transition">
+                <a href="index.php" class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-6 rounded-md inline-block transition">
                     Continue Shopping
                 </a>
             </div>

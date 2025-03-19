@@ -361,14 +361,14 @@ if (isset($_POST['add_to_cart'])) {
                             ></textarea>
                         </div>
                         
-                        <button type="submit" class="bg-orange-500 hover:bg-orange-600 text-white py-2 px-4 rounded-md transition">
+                        <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-md transition">
                             Submit Review
                         </button>
                     </form>
                 </div>
                 <?php else: ?>
                 <div class="mb-8 bg-gray-50 p-4 rounded-lg text-center">
-                    <p class="mb-2">Please <a href="login_and_signup/login.php" class="text-orange-500 hover:underline">login</a> to write a review.</p>
+                    <p class="mb-2">Please <a href="login_and_signup/login.php" class="text-blue-500 hover:underline">login</a> to write a review.</p>
                 </div>
                 <?php endif; ?>
                 
@@ -415,7 +415,7 @@ if (isset($_POST['add_to_cart'])) {
                         <div class="p-3">
                             <h3 class="text-sm font-medium truncate"><?php echo htmlspecialchars($similarProduct['name']); ?></h3>
                             <div class="flex items-center mt-1">
-                                <span class="text-orange-500 font-bold">$<?php echo number_format($similarProduct['price'], 2); ?></span>
+                                <span class="text-blue-500 font-bold">$<?php echo number_format($similarProduct['price'], 2); ?></span>
                                 <?php if ($similarProduct['old_price'] > $similarProduct['price']): ?>
                                     <span class="ml-2 text-gray-400 text-xs line-through">$<?php echo number_format($similarProduct['old_price'], 2); ?></span>
                                 <?php endif; ?>
@@ -436,7 +436,7 @@ if (isset($_POST['add_to_cart'])) {
                     <div class="px-3 pb-3">
                         <form action="product_description.php" method="get">
                             <input type="hidden" name="id" value="<?php echo $similarProduct['id']; ?>">
-                            <button type="submit" class="w-full bg-orange-500 hover:bg-orange-600 text-white text-sm py-1 rounded transition">
+                            <button type="submit" class="w-full bg-blue-500 hover:bg-blue-600 text-white text-sm py-1 rounded transition">
                                 View Product
                             </button>
                         </form>
@@ -475,13 +475,13 @@ if (isset($_POST['add_to_cart'])) {
             button.addEventListener('click', () => {
                 // Remove active class from all buttons
                 tabButtons.forEach(btn => {
-                    btn.classList.remove('text-orange-500', 'border-b-2', 'border-orange-500');
+                    btn.classList.remove('text-blue-500', 'border-b-2', 'border-blue-500');
                     btn.classList.add('text-gray-500');
                 });
                 
                 // Add active class to clicked button
                 button.classList.remove('text-gray-500');
-                button.classList.add('text-orange-500', 'border-b-2', 'border-orange-500');
+                button.classList.add('text-blue-500', 'border-b-2', 'border-blue-500');
                 
                 // Hide all tab contents
                 tabContents.forEach(content => {
