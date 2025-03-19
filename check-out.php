@@ -223,7 +223,7 @@ $total = $subtotal + $shipping;
                             <?php if (count($addresses) > 0): ?>
                                 <div class="grid gap-4">
                                     <?php foreach ($addresses as $address): ?>
-                                        <div class="border border-gray-200 rounded-md p-4 <?php echo $address['is_default'] ? 'border-orange-500' : ''; ?>">
+                                        <div class="border border-gray-200 rounded-md p-4 <?php echo $address['is_default'] ? 'border-blue-500' : ''; ?>">
                                             <div class="flex items-start">
                                                 <div class="flex items-center h-5">
                                                     <input 
@@ -232,7 +232,7 @@ $total = $subtotal + $shipping;
                                                         type="radio" 
                                                         value="<?php echo $address['id']; ?>" 
                                                         <?php echo $address['is_default'] ? 'checked' : ''; ?>
-                                                        class="h-4 w-4 text-orange-500 focus:ring-orange-500"
+                                                        class="h-4 w-4 text-blue-500 focus:ring-blue-500"
                                                     >
                                                 </div>
                                                 <div class="ml-3 text-sm">
@@ -272,7 +272,7 @@ $total = $subtotal + $shipping;
                         
                         <div class="p-4">
                             <div class="grid gap-4">
-                                <div class="border border-gray-200 rounded-md p-4 border-orange-500">
+                                <div class="border border-gray-200 rounded-md p-4 border-blue-500">
                                     <div class="flex items-start">
                                         <div class="flex items-center h-5">
                                             <input 
@@ -281,7 +281,7 @@ $total = $subtotal + $shipping;
                                                 type="radio" 
                                                 value="standard"
                                                 checked
-                                                class="h-4 w-4 text-orange-500 focus:ring-orange-500"
+                                                class="h-4 w-4 text-blue-500 focus:ring-blue-500"
                                             >
                                         </div>
                                         <div class="ml-3 text-sm">
@@ -306,7 +306,7 @@ $total = $subtotal + $shipping;
                                                 name="delivery_method" 
                                                 type="radio" 
                                                 value="express"
-                                                class="h-4 w-4 text-orange-500 focus:ring-orange-500"
+                                                class="h-4 w-4 text-blue-500 focus:ring-blue-500"
                                             >
                                         </div>
                                         <div class="ml-3 text-sm">
@@ -330,7 +330,7 @@ $total = $subtotal + $shipping;
                         
                         <div class="p-4">
                             <div class="grid gap-4">
-                                <div class="border border-gray-200 rounded-md p-4 border-orange-500">
+                                <div class="border border-gray-200 rounded-md p-4 border-blue-500">
                                     <div class="flex items-start">
                                         <div class="flex items-center h-5">
                                             <input 
@@ -339,7 +339,7 @@ $total = $subtotal + $shipping;
                                                 type="radio" 
                                                 value="cash_on_delivery"
                                                 checked
-                                                class="h-4 w-4 text-orange-500 focus:ring-orange-500"
+                                                class="h-4 w-4 text-blue-500 focus:ring-blue-500"
                                             >
                                         </div>
                                         <div class="ml-3 text-sm">
@@ -359,7 +359,7 @@ $total = $subtotal + $shipping;
                                                 name="payment_method" 
                                                 type="radio" 
                                                 value="credit_card"
-                                                class="h-4 w-4 text-orange-500 focus:ring-orange-500"
+                                                class="h-4 w-4 text-blue-500 focus:ring-blue-500"
                                             >
                                         </div>
                                         <div class="ml-3 text-sm">
@@ -384,7 +384,7 @@ $total = $subtotal + $shipping;
                                                 name="payment_method" 
                                                 type="radio" 
                                                 value="mobile_money"
-                                                class="h-4 w-4 text-orange-500 focus:ring-orange-500"
+                                                class="h-4 w-4 text-blue-500 focus:ring-blue-500"
                                             >
                                         </div>
                                         <div class="ml-3 text-sm">
@@ -450,7 +450,7 @@ $total = $subtotal + $shipping;
                                 <button 
                                     type="submit" 
                                     name="place_order" 
-                                    class="bg-orange-500 hover:bg-orange-600 text-white py-2 px-4 rounded-md flex items-center justify-center transition w-full mb-4"
+                                    class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-md flex items-center justify-center transition w-full mb-4"
                                     <?php echo (count($addresses) === 0) ? 'disabled' : ''; ?>
                                 >
                                     Place Order
@@ -462,7 +462,7 @@ $total = $subtotal + $shipping;
                                 
                                 <a 
                                     href="cart.php" 
-                                    class="text-orange-500 hover:text-orange-600 flex items-center justify-center"
+                                    class="text-blue-500 hover:text-blue-600 flex items-center justify-center"
                                 >
                                     <i class="fas fa-arrow-left mr-2"></i> Back to Cart
                                 </a>
