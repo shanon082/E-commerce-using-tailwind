@@ -24,7 +24,7 @@
                             class="w-full px-4 py-2 rounded-l-md focus:outline-none text-gray-900"
                             required
                         />
-                        <button type="submit" class="bg-orange-500 hover:bg-orange-600 px-4 py-2 rounded-r-md transition">
+                        <button type="submit" class="bg-blue-500 hover:bg-blue-600 px-4 py-2 rounded-r-md transition">
                             Subscribe
                         </button>
                     </form>

@@ -42,7 +42,7 @@ $latestProducts = $stmt->fetchAll(PDO::FETCH_ASSOC);
           <div class="text-white max-w-md">
             <h3 class="text-2xl md:text-3xl lg:text-4xl font-bold mb-2">Latest Electronics <br />& Gadgets</h3>
             <p class="text-sm md:text-base mb-4">Find the best deals on the newest tech products.</p>
-            <a href="#electronics" class="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-md inline-block transition">Shop Now</a>
+            <a href="#electronics" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md inline-block transition">Shop Now</a>
           </div>
         </div>
       </div>
@@ -52,7 +52,7 @@ $latestProducts = $stmt->fetchAll(PDO::FETCH_ASSOC);
           <div class="text-white max-w-md">
             <h3 class="text-2xl md:text-3xl lg:text-4xl font-bold mb-2">Trendy Fashion <br />& Clothing</h3>
             <p class="text-sm md:text-base mb-4">Shop the latest trends at the best prices.</p>
-            <a href="#fashion" class="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-md inline-block transition">Shop Now</a>
+            <a href="#fashion" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md inline-block transition">Shop Now</a>
           </div>
         </div>
       </div>
@@ -62,7 +62,7 @@ $latestProducts = $stmt->fetchAll(PDO::FETCH_ASSOC);
           <div class="text-white max-w-md">
             <h3 class="text-2xl md:text-3xl lg:text-4xl font-bold mb-2">Quality Home <br />Products</h3>
             <p class="text-sm md:text-base mb-4">Stylish and durable products for your home.</p>
-            <a href="#home" class="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-md inline-block transition">Shop Now</a>
+            <a href="#home" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md inline-block transition">Shop Now</a>
           </div>
         </div>
       </div>
@@ -83,7 +83,7 @@ $latestProducts = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <?php foreach ($categories as $category): ?>
           <a href="category.php?id=<?php echo $category['id']; ?>" class="bg-gray-100 rounded-lg p-4 text-center hover:shadow-md transition">
             <div class="w-12 h-12 mx-auto mb-2 flex items-center justify-center">
-              <i class="<?php echo $category['icon']; ?> text-2xl text-orange-500"></i>
+              <i class="<?php echo $category['icon']; ?> text-2xl text-blue-500"></i>
             </div>
             <h3 class="text-sm font-medium"><?php echo htmlspecialchars($category['name']); ?></h3>
           </a>
@@ -101,7 +101,7 @@ $latestProducts = $stmt->fetchAll(PDO::FETCH_ASSOC);
           <p class="text-xl font-bold">UP TO 60% OFF</p>
           <p class="text-sm">Limited time offer - 17-30 MARCH</p>
         </div>
-        <a href="#deals" class="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-md inline-block transition">SHOP NOW</a>
+        <a href="#deals" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md inline-block transition">SHOP NOW</a>
       </div>
     </div>
   </section>
@@ -111,7 +111,7 @@ $latestProducts = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <div class="container mx-auto px-4">
       <div class="flex justify-between items-center mb-6">
         <h2 class="text-xl md:text-2xl font-bold">Featured Products</h2>
-        <a href="#" class="text-orange-500 hover:underline text-sm">See All</a>
+        <a href="#" class="text-blue-500 hover:underline text-sm">See All</a>
       </div>
       <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4">
         <?php foreach ($featuredProducts as $product): ?>
@@ -125,7 +125,7 @@ $latestProducts = $stmt->fetchAll(PDO::FETCH_ASSOC);
               <div class="p-3">
                 <h3 class="text-sm font-medium truncate"><?php echo htmlspecialchars($product['name']); ?></h3>
                 <div class="flex items-center mt-1">
-                  <span class="text-orange-500 font-bold">$<?php echo number_format($product['price'], 2); ?></span>
+                  <span class="text-blue-500 font-bold">$<?php echo number_format($product['price'], 2); ?></span>
                   <?php if ($product['old_price'] > $product['price']): ?>
                     <span class="ml-2 text-gray-400 text-xs line-through">$<?php echo number_format($product['old_price'], 2); ?></span>
                   <?php endif; ?>
@@ -144,7 +144,7 @@ $latestProducts = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <div class="px-3 pb-3">
               <button 
                 onclick="addToCart(<?php echo $product['id']; ?>)" 
-                class="w-full bg-orange-500 hover:bg-orange-600 text-white text-sm py-1 rounded transition"
+                class="w-full bg-blue-500 hover:bg-blue-600 text-white text-sm py-1 rounded transition"
               >
                 Add to Cart
               </button>
@@ -160,7 +160,7 @@ $latestProducts = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <div class="container mx-auto px-4">
       <div class="flex justify-between items-center mb-6">
         <h2 class="text-xl md:text-2xl font-bold">Electronics</h2>
-        <a href="category.php?id=1" class="text-orange-500 hover:underline text-sm">See All</a>
+        <a href="category.php?id=1" class="text-blue-500 hover:underline text-sm">See All</a>
       </div>
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
         <div class="bg-white rounded-lg border border-gray-200 overflow-hidden hover:shadow-md transition">
@@ -169,7 +169,7 @@ $latestProducts = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <div class="p-3">
               <h3 class="text-sm font-medium">Premium Headphones</h3>
               <div class="flex items-center mt-1">
-                <span class="text-orange-500 font-bold">$89.99</span>
+                <span class="text-blue-500 font-bold">$89.99</span>
                 <span class="ml-2 text-gray-400 text-xs line-through">$129.99</span>
               </div>
               <div class="flex items-center mt-1 text-yellow-400 text-xs">
@@ -182,7 +182,7 @@ $latestProducts = $stmt->fetchAll(PDO::FETCH_ASSOC);
             </div>
           </a>
           <div class="px-3 pb-3">
-            <button onclick="addToCart(1)" class="w-full bg-orange-500 hover:bg-orange-600 text-white text-sm py-1 rounded transition">
+            <button onclick="addToCart(1)" class="w-full bg-blue-500 hover:bg-blue-600 text-white text-sm py-1 rounded transition">
               Add to Cart
             </button>
           </div>
@@ -193,7 +193,7 @@ $latestProducts = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <div class="p-3">
               <h3 class="text-sm font-medium">Smart Watch Pro</h3>
               <div class="flex items-center mt-1">
-                <span class="text-orange-500 font-bold">$149.99</span>
+                <span class="text-blue-500 font-bold">$149.99</span>
                 <span class="ml-2 text-gray-400 text-xs line-through">$199.99</span>
               </div>
               <div class="flex items-center mt-1 text-yellow-400 text-xs">
@@ -206,7 +206,7 @@ $latestProducts = $stmt->fetchAll(PDO::FETCH_ASSOC);
             </div>
           </a>
           <div class="px-3 pb-3">
-            <button onclick="addToCart(2)" class="w-full bg-orange-500 hover:bg-orange-600 text-white text-sm py-1 rounded transition">
+            <button onclick="addToCart(2)" class="w-full bg-blue-500 hover:bg-blue-600 text-white text-sm py-1 rounded transition">
               Add to Cart
             </button>
           </div>
@@ -217,7 +217,7 @@ $latestProducts = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <div class="p-3">
               <h3 class="text-sm font-medium">Portable Bluetooth Speaker</h3>
               <div class="flex items-center mt-1">
-                <span class="text-orange-500 font-bold">$59.99</span>
+                <span class="text-blue-500 font-bold">$59.99</span>
                 <span class="ml-2 text-gray-400 text-xs line-through">$79.99</span>
               </div>
               <div class="flex items-center mt-1 text-yellow-400 text-xs">
@@ -230,7 +230,7 @@ $latestProducts = $stmt->fetchAll(PDO::FETCH_ASSOC);
             </div>
           </a>
           <div class="px-3 pb-3">
-            <button onclick="addToCart(3)" class="w-full bg-orange-500 hover:bg-orange-600 text-white text-sm py-1 rounded transition">
+            <button onclick="addToCart(3)" class="w-full bg-blue-500 hover:bg-blue-600 text-white text-sm py-1 rounded transition">
               Add to Cart
             </button>
           </div>
@@ -241,7 +241,7 @@ $latestProducts = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <div class="p-3">
               <h3 class="text-sm font-medium">Digital Camera 4K</h3>
               <div class="flex items-center mt-1">
-                <span class="text-orange-500 font-bold">$399.99</span>
+                <span class="text-blue-500 font-bold">$399.99</span>
                 <span class="ml-2 text-gray-400 text-xs line-through">$499.99</span>
               </div>
               <div class="flex items-center mt-1 text-yellow-400 text-xs">
@@ -254,7 +254,7 @@ $latestProducts = $stmt->fetchAll(PDO::FETCH_ASSOC);
             </div>
           </a>
           <div class="px-3 pb-3">
-            <button onclick="addToCart(4)" class="w-full bg-orange-500 hover:bg-orange-600 text-white text-sm py-1 rounded transition">
+            <button onclick="addToCart(4)" class="w-full bg-blue-500 hover:bg-blue-600 text-white text-sm py-1 rounded transition">
               Add to Cart
             </button>
           </div>
@@ -268,7 +268,7 @@ $latestProducts = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <div class="container mx-auto px-4">
       <div class="flex justify-between items-center mb-6">
         <h2 class="text-xl md:text-2xl font-bold">Fashion</h2>
-        <a href="category.php?id=2" class="text-orange-500 hover:underline text-sm">See All</a>
+        <a href="category.php?id=2" class="text-blue-500 hover:underline text-sm">See All</a>
       </div>
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
         <div class="bg-white rounded-lg border border-gray-200 overflow-hidden hover:shadow-md transition">
@@ -277,7 +277,7 @@ $latestProducts = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <div class="p-3">
               <h3 class="text-sm font-medium">Men's Classic Watch</h3>
               <div class="flex items-center mt-1">
-                <span class="text-orange-500 font-bold">$129.99</span>
+                <span class="text-blue-500 font-bold">$129.99</span>
                 <span class="ml-2 text-gray-400 text-xs line-through">$179.99</span>
               </div>
               <div class="flex items-center mt-1 text-yellow-400 text-xs">
@@ -290,7 +290,7 @@ $latestProducts = $stmt->fetchAll(PDO::FETCH_ASSOC);
             </div>
           </a>
           <div class="px-3 pb-3">
-            <button onclick="addToCart(5)" class="w-full bg-orange-500 hover:bg-orange-600 text-white text-sm py-1 rounded transition">
+            <button onclick="addToCart(5)" class="w-full bg-blue-500 hover:bg-blue-600 text-white text-sm py-1 rounded transition">
               Add to Cart
             </button>
           </div>
@@ -301,7 +301,7 @@ $latestProducts = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <div class="p-3">
               <h3 class="text-sm font-medium">Designer Handbag</h3>
               <div class="flex items-center mt-1">
-                <span class="text-orange-500 font-bold">$89.99</span>
+                <span class="text-blue-500 font-bold">$89.99</span>
                 <span class="ml-2 text-gray-400 text-xs line-through">$119.99</span>
               </div>
               <div class="flex items-center mt-1 text-yellow-400 text-xs">
@@ -314,7 +314,7 @@ $latestProducts = $stmt->fetchAll(PDO::FETCH_ASSOC);
             </div>
           </a>
           <div class="px-3 pb-3">
-            <button onclick="addToCart(6)" class="w-full bg-orange-500 hover:bg-orange-600 text-white text-sm py-1 rounded transition">
+            <button onclick="addToCart(6)" class="w-full bg-blue-500 hover:bg-blue-600 text-white text-sm py-1 rounded transition">
               Add to Cart
             </button>
           </div>
@@ -325,7 +325,7 @@ $latestProducts = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <div class="p-3">
               <h3 class="text-sm font-medium">Premium Sunglasses</h3>
               <div class="flex items-center mt-1">
-                <span class="text-orange-500 font-bold">$49.99</span>
+                <span class="text-blue-500 font-bold">$49.99</span>
                 <span class="ml-2 text-gray-400 text-xs line-through">$69.99</span>
               </div>
               <div class="flex items-center mt-1 text-yellow-400 text-xs">
@@ -338,7 +338,7 @@ $latestProducts = $stmt->fetchAll(PDO::FETCH_ASSOC);
             </div>
           </a>
           <div class="px-3 pb-3">
-            <button onclick="addToCart(7)" class="w-full bg-orange-500 hover:bg-orange-600 text-white text-sm py-1 rounded transition">
+            <button onclick="addToCart(7)" class="w-full bg-blue-500 hover:bg-blue-600 text-white text-sm py-1 rounded transition">
               Add to Cart
             </button>
           </div>
@@ -349,7 +349,7 @@ $latestProducts = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <div class="p-3">
               <h3 class="text-sm font-medium">Leather Wallet</h3>
               <div class="flex items-center mt-1">
-                <span class="text-orange-500 font-bold">$39.99</span>
+                <span class="text-blue-500 font-bold">$39.99</span>
                 <span class="ml-2 text-gray-400 text-xs line-through">$59.99</span>
               </div>
               <div class="flex items-center mt-1 text-yellow-400 text-xs">
@@ -362,7 +362,7 @@ $latestProducts = $stmt->fetchAll(PDO::FETCH_ASSOC);
             </div>
           </a>
           <div class="px-3 pb-3">
-            <button onclick="addToCart(8)" class="w-full bg-orange-500 hover:bg-orange-600 text-white text-sm py-1 rounded transition">
+            <button onclick="addToCart(8)" class="w-full bg-blue-500 hover:bg-blue-600 text-white text-sm py-1 rounded transition">
               Add to Cart
             </button>
           </div>
@@ -376,7 +376,7 @@ $latestProducts = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <div class="container mx-auto px-4">
       <div class="flex justify-between items-center mb-6">
         <h2 class="text-xl md:text-2xl font-bold">Home Products</h2>
-        <a href="category.php?id=3" class="text-orange-500 hover:underline text-sm">See All</a>
+        <a href="category.php?id=3" class="text-blue-500 hover:underline text-sm">See All</a>
       </div>
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
         <div class="bg-white rounded-lg border border-gray-200 overflow-hidden hover:shadow-md transition">
@@ -385,7 +385,7 @@ $latestProducts = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <div class="p-3">
               <h3 class="text-sm font-medium">Modern Table Lamp</h3>
               <div class="flex items-center mt-1">
-                <span class="text-orange-500 font-bold">$49.99</span>
+                <span class="text-blue-500 font-bold">$49.99</span>
                 <span class="ml-2 text-gray-400 text-xs line-through">$69.99</span>
               </div>
               <div class="flex items-center mt-1 text-yellow-400 text-xs">
@@ -398,7 +398,7 @@ $latestProducts = $stmt->fetchAll(PDO::FETCH_ASSOC);
             </div>
           </a>
           <div class="px-3 pb-3">
-            <button onclick="addToCart(9)" class="w-full bg-orange-500 hover:bg-orange-600 text-white text-sm py-1 rounded transition">
+            <button onclick="addToCart(9)" class="w-full bg-blue-500 hover:bg-blue-600 text-white text-sm py-1 rounded transition">
               Add to Cart
             </button>
           </div>
@@ -409,7 +409,7 @@ $latestProducts = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <div class="p-3">
               <h3 class="text-sm font-medium">Decorative Pillow Set</h3>
               <div class="flex items-center mt-1">
-                <span class="text-orange-500 font-bold">$29.99</span>
+                <span class="text-blue-500 font-bold">$29.99</span>
                 <span class="ml-2 text-gray-400 text-xs line-through">$39.99</span>
               </div>
               <div class="flex items-center mt-1 text-yellow-400 text-xs">
@@ -422,7 +422,7 @@ $latestProducts = $stmt->fetchAll(PDO::FETCH_ASSOC);
             </div>
           </a>
           <div class="px-3 pb-3">
-            <button onclick="addToCart(10)" class="w-full bg-orange-500 hover:bg-orange-600 text-white text-sm py-1 rounded transition">
+            <button onclick="addToCart(10)" class="w-full bg-blue-500 hover:bg-blue-600 text-white text-sm py-1 rounded transition">
               Add to Cart
             </button>
           </div>
@@ -433,7 +433,7 @@ $latestProducts = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <div class="p-3">
               <h3 class="text-sm font-medium">Designer Coffee Mug</h3>
               <div class="flex items-center mt-1">
-                <span class="text-orange-500 font-bold">$14.99</span>
+                <span class="text-blue-500 font-bold">$14.99</span>
                 <span class="ml-2 text-gray-400 text-xs line-through">$19.99</span>
               </div>
               <div class="flex items-center mt-1 text-yellow-400 text-xs">
@@ -446,7 +446,7 @@ $latestProducts = $stmt->fetchAll(PDO::FETCH_ASSOC);
             </div>
           </a>
           <div class="px-3 pb-3">
-            <button onclick="addToCart(11)" class="w-full bg-orange-500 hover:bg-orange-600 text-white text-sm py-1 rounded transition">
+            <button onclick="addToCart(11)" class="w-full bg-blue-500 hover:bg-blue-600 text-white text-sm py-1 rounded transition">
               Add to Cart
             </button>
           </div>
@@ -457,7 +457,7 @@ $latestProducts = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <div class="p-3">
               <h3 class="text-sm font-medium">Wooden Desk Organizer</h3>
               <div class="flex items-center mt-1">
-                <span class="text-orange-500 font-bold">$24.99</span>
+                <span class="text-blue-500 font-bold">$24.99</span>
                 <span class="ml-2 text-gray-400 text-xs line-through">$34.99</span>
               </div>
               <div class="flex items-center mt-1 text-yellow-400 text-xs">
@@ -470,7 +470,7 @@ $latestProducts = $stmt->fetchAll(PDO::FETCH_ASSOC);
             </div>
           </a>
           <div class="px-3 pb-3">
-            <button onclick="addToCart(12)" class="w-full bg-orange-500 hover:bg-orange-600 text-white text-sm py-1 rounded transition">
+            <button onclick="addToCart(12)" class="w-full bg-blue-500 hover:bg-blue-600 text-white text-sm py-1 rounded transition">
               Add to Cart
             </button>
           </div>
@@ -487,7 +487,7 @@ $latestProducts = $stmt->fetchAll(PDO::FETCH_ASSOC);
           <img src="https://images.unsplash.com/photo-1698440050363-1697e5f0277c" alt="About Us" class="rounded-lg shadow-md w-full" />
         </div>
         <div class="md:w-1/2">
-          <p class="text-orange-500 font-semibold">About Us</p>
+          <p class="text-blue-500 font-semibold">About Us</p>
           <h2 class="text-2xl md:text-3xl font-bold mb-4">We Provide High-Quality Products</h2>
           <p class="text-gray-600 mb-4">
             We ensure that our products meet top-notch quality standards to satisfy our customers. 
@@ -497,7 +497,7 @@ $latestProducts = $stmt->fetchAll(PDO::FETCH_ASSOC);
           <p class="mb-1"><span class="font-medium">Secure Payments</span> with multiple options</p>
           <p class="mb-1"><span class="font-medium">24/7 Customer Support</span> for your convenience</p>
           <p class="mb-4"><span class="font-medium">Easy Returns</span> within 30 days</p>
-          <a href="#" class="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-md inline-block transition">Learn More</a>
+          <a href="#" class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 rounded-md inline-block transition">Learn More</a>
         </div>
       </div>
     </div>
@@ -568,7 +568,7 @@ $latestProducts = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <p class="mb-6">Stay updated with our latest offers and promotions</p>
         <div class="flex flex-col sm:flex-row gap-2 justify-center">
           <input type="email" placeholder="Enter your Email" class="px-4 py-2 rounded-md text-gray-800 w-full sm:w-auto" />
-          <button type="submit" class="bg-orange-500 hover:bg-orange-600 px-6 py-2 rounded-md transition">Subscribe Now</button>
+          <button type="submit" class="bg-blue-500 hover:bg-blue-600 px-6 py-2 rounded-md transition">Subscribe Now</button>
         </div>
       </div>
     </div>
