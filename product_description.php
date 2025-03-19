@@ -113,8 +113,8 @@ if (isset($_POST['add_to_cart'])) {
         
         /* Better styling for tabs */
         .tab-btn.active {
-            color: #f97316;
-            border-bottom: 2px solid #f97316;
+            color: #3b82f6;
+            border-bottom: 2px solid #3b82f6;
         }
         
         /* Review stars hover effect */
@@ -124,7 +124,7 @@ if (isset($_POST['add_to_cart'])) {
         
         /* Image gallery thumbnails */
         .thumbnail-item.active {
-            border-color: #f97316;
+            border-color: #3b82f6;
         }
     </style>
 </head>
@@ -142,9 +142,9 @@ if (isset($_POST['add_to_cart'])) {
     <div class="container mx-auto px-4 py-8">
         <!-- Breadcrumb Navigation -->
         <div class="flex items-center text-sm text-gray-500 mb-6">
-            <a href="index.php" class="hover:text-orange-500">Home</a>
+            <a href="index.php" class="hover:text-blue-500">Home</a>
             <span class="mx-2">/</span>
-            <a href="category.php?id=<?php echo $product['category_id']; ?>" class="hover:text-orange-500">
+            <a href="category.php?id=<?php echo $product['category_id']; ?>" class="hover:text-blue-500">
                 <?php echo htmlspecialchars($product['category_name']); ?>
             </a>
             <span class="mx-2">/</span>
@@ -194,12 +194,12 @@ if (isset($_POST['add_to_cart'])) {
                     </div>
                     
                     <div class="mb-4">
-                        <span class="text-2xl font-bold text-orange-500">$<?php echo number_format($product['price'], 2); ?></span>
+                        <span class="text-2xl font-bold text-blue-500">$<?php echo number_format($product['price'], 2); ?></span>
                         <?php if ($product['old_price'] && $product['old_price'] > $product['price']): ?>
                             <span class="ml-2 text-gray-500 line-through">$<?php echo number_format($product['old_price'], 2); ?></span>
                             <?php 
                                 $discount = round(($product['old_price'] - $product['price']) / $product['old_price'] * 100);
-                                echo '<span class="ml-2 bg-orange-500 text-white text-xs px-2 py-1 rounded">SAVE ' . $discount . '%</span>';
+                                echo '<span class="ml-2 bg-blue-500 text-white text-xs px-2 py-1 rounded">SAVE ' . $discount . '%</span>';
                             ?>
                         <?php endif; ?>
                     </div>
@@ -247,14 +247,14 @@ if (isset($_POST['add_to_cart'])) {
                                 type="submit" 
                                 name="add_to_cart" 
                                 <?php echo $product['stock'] <= 0 ? 'disabled' : ''; ?>
-                                class="flex-1 bg-orange-500 hover:bg-orange-600 text-white py-2 px-4 rounded-md transition <?php echo $product['stock'] <= 0 ? 'opacity-50 cursor-not-allowed' : ''; ?>"
+                                class="flex-1 bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-md transition <?php echo $product['stock'] <= 0 ? 'opacity-50 cursor-not-allowed' : ''; ?>"
                             >
                                 <i class="fas fa-shopping-cart mr-2"></i> Add to Cart
                             </button>
                             
                             <button 
                                 type="button" 
-                                class="border border-orange-500 text-orange-500 hover:bg-orange-50 py-2 px-4 rounded-md transition"
+                                class="border border-blue-500 text-blue-500 hover:bg-blue-50 py-2 px-4 rounded-md transition"
                             >
                                 <i class="far fa-heart"></i>
                             </button>
@@ -268,7 +268,7 @@ if (isset($_POST['add_to_cart'])) {
         <div class="bg-white rounded-lg shadow-sm overflow-hidden mb-8">
             <div class="border-b border-gray-200">
                 <nav class="flex -mb-px">
-                    <button id="tab-description" class="tab-btn text-orange-500 border-b-2 border-orange-500 py-4 px-6 font-medium">Description</button>
+                    <button id="tab-description" class="tab-btn text-blue-500 border-b-2 border-blue-500 py-4 px-6 font-medium">Description</button>
                     <button id="tab-specifications" class="tab-btn text-gray-500 py-4 px-6 font-medium">Specifications</button>
                     <button id="tab-reviews" class="tab-btn text-gray-500 py-4 px-6 font-medium">Reviews (<?php echo $reviewCount; ?>)</button>
                 </nav>
