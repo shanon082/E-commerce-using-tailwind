@@ -174,7 +174,7 @@ if (!empty($_SESSION['cart'])) {
                                             <div class="flex flex-col sm:flex-row sm:justify-between">
                                                 <div>
                                                     <h3 class="font-medium">
-                                                        <a href="product_description.php?id=<?php echo $product_id; ?>" class="hover:text-orange-500">
+                                                        <a href="product_description.php?id=<?php echo $product_id; ?>" class="hover:text-blue-500">
                                                             <?php echo htmlspecialchars($item['name']); ?>
                                                         </a>
                                                     </h3>
@@ -272,13 +272,13 @@ if (!empty($_SESSION['cart'])) {
                             </div>
                             <a 
                                 href="check-out.php" 
-                                class="bg-orange-500 hover:bg-orange-600 text-white py-2 px-4 rounded-md flex items-center justify-center transition w-full mb-4"
+                                class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-md flex items-center justify-center transition w-full mb-4"
                             >
                                 Proceed to Checkout
                             </a>
                             <a 
                                 href="index.php" 
-                                class="text-orange-500 hover:text-orange-600 flex items-center justify-center"
+                                class="text-blue-500 hover:text-blue-600 flex items-center justify-center"
                             >
                                 <i class="fas fa-arrow-left mr-2"></i> Continue Shopping
                             </a>
@@ -303,7 +303,7 @@ if (!empty($_SESSION['cart'])) {
                             <div class="p-3">
                                 <h3 class="text-sm font-medium truncate"><?php echo htmlspecialchars($product['name']); ?></h3>
                                 <div class="flex items-center mt-1">
-                                    <span class="text-orange-500 font-bold">$<?php echo number_format($product['price'], 2); ?></span>
+                                    <span class="text-blue-500 font-bold">$<?php echo number_format($product['price'], 2); ?></span>
                                     <?php if ($product['old_price'] > $product['price']): ?>
                                         <span class="ml-2 text-gray-400 text-xs line-through">$<?php echo number_format($product['old_price'], 2); ?></span>
                                     <?php endif; ?>
@@ -324,7 +324,7 @@ if (!empty($_SESSION['cart'])) {
                         <div class="px-3 pb-3">
                             <button 
                                 onclick="addToCart(<?php echo $product['id']; ?>)" 
-                                class="w-full bg-orange-500 hover:bg-orange-600 text-white text-sm py-1 rounded transition"
+                                class="w-full bg-blue-500 hover:bg-blue-600 text-white text-sm py-1 rounded transition"
                             >
                                 Add to Cart
                             </button>

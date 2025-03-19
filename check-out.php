@@ -145,7 +145,7 @@ $total = $subtotal + $shipping;
         }
         
         .checkout-step.active .step-number {
-            background-color: #f97316;
+            background-color: #3b82f6;
             color: white;
         }
         
@@ -156,7 +156,7 @@ $total = $subtotal + $shipping;
         
         /* Radio button custom styling */
         .custom-radio input:checked + .radio-label {
-            border-color: #f97316;
+            border-color: #3b82f6;
         }
         
         .custom-radio input:checked + .radio-label .check-icon {
@@ -169,7 +169,7 @@ $total = $subtotal + $shipping;
         }
         
         .address-card:hover {
-            border-color: #f97316;
+            border-color: #3b82f6;
             transform: translateY(-2px);
         }
         
@@ -179,7 +179,7 @@ $total = $subtotal + $shipping;
         }
         
         .payment-card:hover {
-            border-color: #f97316;
+            border-color: #3b82f6;
         }
     </style>
 </head>
@@ -215,7 +215,7 @@ $total = $subtotal + $shipping;
                         <div class="p-4 border-b border-gray-200 flex justify-between items-center">
                             <h2 class="text-lg font-medium">1. Delivery Address</h2>
                             <?php if (count($addresses) > 0): ?>
-                                <a href="edit_address.php" class="text-orange-500 hover:underline text-sm">Add New Address</a>
+                                <a href="edit_address.php" class="text-blue-500 hover:underline text-sm">Add New Address</a>
                             <?php endif; ?>
                         </div>
                         
@@ -256,7 +256,7 @@ $total = $subtotal + $shipping;
                             <?php else: ?>
                                 <div class="text-center py-4">
                                     <p class="text-gray-600 mb-4">You don't have any saved addresses.</p>
-                                    <a href="edit_address.php" class="bg-orange-500 hover:bg-orange-600 text-white py-2 px-4 rounded-md inline-block transition">
+                                    <a href="edit_address.php" class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-md inline-block transition">
                                         Add New Address
                                     </a>
                                 </div>
