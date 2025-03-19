@@ -157,7 +157,7 @@ $pageTitle = $addressId ? 'Edit Address' : 'Add New Address';
 
     <div class="container mx-auto px-4 py-8">
         <div class="flex items-center mb-6">
-            <a href="myAccount.php" class="text-orange-500 hover:underline mr-2">
+            <a href="myAccount.php" class="text-blue-500 hover:underline mr-2">
                 <i class="fas fa-arrow-left"></i> Back to My Account
             </a>
             <h1 class="text-2xl font-bold"><?php echo $pageTitle; ?></h1>
