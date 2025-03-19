@@ -1,0 +1,50 @@
+/* Tailwind CSS v3.x */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom CSS */
+:root {
+  --color-primary: #f97316; /* Orange 500 */
+  --color-primary-hover: #ea580c; /* Orange 600 */
+  --color-secondary: #2563eb; /* Blue 600 */
+  --color-secondary-hover: #1d4ed8; /* Blue 700 */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-orange-500 hover:bg-orange-600 text-white py-2 px-4 rounded-md transition;
+  }
+  
+  .btn-secondary {
+    @apply bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-md transition;
+  }
+  
+  .btn-outline {
+    @apply border border-orange-500 text-orange-500 hover:bg-orange-50 py-2 px-4 rounded-md transition;
+  }
+}
+
+/* Slide Animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
