@@ -12,17 +12,90 @@ if (session_status() === PHP_SESSION_NONE) {
     <link rel="shortcut icon" href="./assets/images/favicon.ico" type="image/x-icon" />
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://kit.fontawesome.com/b27d0ab5e4.js" crossorigin="anonymous"></script>
+    <!-- Enhanced header styles -->
     <style>
+        /* Dropdown menu animations and styling */
         .dropdown-menu {
             display: none;
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: opacity 0.3s, transform 0.3s;
         }
         
         .dropdown:hover .dropdown-menu {
             display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Mobile menu animations */
+        .mobile-menu-enter {
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, opacity 0.3s ease;
+        }
+        
+        .mobile-menu-enter-active {
+            max-height: 500px;
+            opacity: 1;
+        }
+        
+        /* Nav link hover effects */
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #f97316;
+            transition: width 0.3s;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        /* Search bar focus effect */
+        .search-input:focus {
+            box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.2);
+        }
+        
+        /* Better sticky header experience */
+        .sticky-header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            backdrop-filter: blur(8px);
+            transition: all 0.3s ease;
+        }
+        
+        /* Cart counter animation */
+        @keyframes cartBounce {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+        
+        .cart-count {
+            animation: cartBounce 0.6s;
         }
     </style>
 </head>
 <body>
+
+<!-- PHP backend integration will handle:
+1. User authentication status checks
+2. Dynamic category loading from database
+3. Cart item count from session
+4. Search functionality
+5. Mobile responsiveness detection
+6. User profile management links
+-->
     <header class="bg-white shadow-sm">
         <!-- Top Banner -->
         <div class="bg-blue-600 text-white py-2 px-4">

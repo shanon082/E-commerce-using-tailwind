@@ -20,13 +20,9 @@ try {
     // Set fetch mode to associative array by default
     $conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
     
-    // Check if tables exist and create them if they don't
-    $result = $conn->query("SELECT EXISTS (
-        SELECT FROM information_schema.tables 
-        WHERE table_name = 'categories'
-    )");
-    
-    $tableExists = $result->fetchColumn();
+    // For SQLite, check if tables exist by trying to query the sqlite_master table
+    $result = $conn->query("SELECT name FROM sqlite_master WHERE type='table' AND name='categories'");
+    $tableExists = $result && $result->fetchColumn();
     
     if (!$tableExists) {
         // Create tables

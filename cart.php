@@ -88,9 +88,53 @@ if (!empty($_SESSION['cart'])) {
     <link rel="stylesheet" href="assets/css/styles.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://kit.fontawesome.com/b27d0ab5e4.js" crossorigin="anonymous"></script>
+    <!-- Custom styles for cart page -->
+    <style>
+        /* Animated button effect */
+        .btn-hover-effect:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.2s ease;
+        }
+        
+        /* Quantity input styling */
+        .quantity-input::-webkit-inner-spin-button,
+        .quantity-input::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        
+        /* Cart item hover effect */
+        .cart-item {
+            transition: all 0.2s ease;
+        }
+        
+        .cart-item:hover {
+            background-color: #f9fafb;
+        }
+        
+        /* Price animation on update */
+        @keyframes priceUpdate {
+            0% { color: #f97316; }
+            100% { color: inherit; }
+        }
+        
+        .price-updated {
+            animation: priceUpdate 1.5s ease;
+        }
+    </style>
 </head>
 <body class="bg-gray-100">
     <?php include 'header.php'; ?>
+    
+    <!-- PHP backend integration will handle:
+    1. Session management for cart items storage
+    2. Update quantity functionality with stock validation
+    3. Remove item functionality
+    4. Price calculations including discounts
+    5. Save for later functionality (wishlist integration)
+    6. Recommended products based on cart items
+    -->
 
     <div class="container mx-auto px-4 py-8">
         <h1 class="text-2xl font-bold mb-6">Shopping Cart</h1>

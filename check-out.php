@@ -121,9 +121,80 @@ $total = $subtotal + $shipping;
     <link rel="stylesheet" href="assets/css/styles.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://kit.fontawesome.com/b27d0ab5e4.js" crossorigin="anonymous"></script>
+    <!-- Custom styles for checkout page -->
+    <style>
+        /* Progress indicator */
+        .checkout-step {
+            position: relative;
+        }
+        
+        .checkout-step::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 100%;
+            width: 100%;
+            height: 2px;
+            background-color: #e5e7eb;
+            transform: translateY(-50%);
+            z-index: 0;
+        }
+        
+        .checkout-step:last-child::after {
+            display: none;
+        }
+        
+        .checkout-step.active .step-number {
+            background-color: #f97316;
+            color: white;
+        }
+        
+        .checkout-step.completed .step-number {
+            background-color: #22c55e;
+            color: white;
+        }
+        
+        /* Radio button custom styling */
+        .custom-radio input:checked + .radio-label {
+            border-color: #f97316;
+        }
+        
+        .custom-radio input:checked + .radio-label .check-icon {
+            display: flex;
+        }
+        
+        /* Address card hover effect */
+        .address-card {
+            transition: all 0.2s ease;
+        }
+        
+        .address-card:hover {
+            border-color: #f97316;
+            transform: translateY(-2px);
+        }
+        
+        /* Payment method card effect */
+        .payment-card {
+            transition: all 0.2s ease;
+        }
+        
+        .payment-card:hover {
+            border-color: #f97316;
+        }
+    </style>
 </head>
 <body class="bg-gray-100">
     <?php include 'header.php'; ?>
+    
+    <!-- PHP backend integration will handle:
+    1. User authentication and redirection if not logged in
+    2. Session management for cart items
+    3. Address retrieval and management from database
+    4. Order processing with database transaction
+    5. Payment method processing
+    6. Post-order inventory updates
+    7. Order confirmation email sending
+    -->
 
     <div class="container mx-auto px-4 py-8">
         <h1 class="text-2xl font-bold mb-6">Checkout</h1>

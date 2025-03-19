@@ -97,9 +97,47 @@ if (isset($_POST['add_to_cart'])) {
     <link rel="stylesheet" href="assets/css/styles.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://kit.fontawesome.com/b27d0ab5e4.js" crossorigin="anonymous"></script>
+    <!-- Additional meta tags for SEO -->
+    <meta name="description" content="<?php echo htmlspecialchars(substr($product['description'], 0, 160)); ?>">
+    <meta property="og:title" content="<?php echo htmlspecialchars($product['name']); ?> - TUKOLE Business">
+    <meta property="og:description" content="<?php echo htmlspecialchars(substr($product['description'], 0, 160)); ?>">
+    <meta property="og:image" content="<?php echo htmlspecialchars($product['image_url']); ?>">
+    <meta property="og:type" content="product">
+    <!-- Custom styles for product page -->
+    <style>
+        /* Zoom effect for product image on hover */
+        .product-image-container:hover img {
+            transform: scale(1.05);
+            transition: transform 0.3s ease;
+        }
+        
+        /* Better styling for tabs */
+        .tab-btn.active {
+            color: #f97316;
+            border-bottom: 2px solid #f97316;
+        }
+        
+        /* Review stars hover effect */
+        .rating-stars i:hover ~ i {
+            color: #d1d5db;
+        }
+        
+        /* Image gallery thumbnails */
+        .thumbnail-item.active {
+            border-color: #f97316;
+        }
+    </style>
 </head>
 <body class="bg-gray-100">
     <?php include 'header.php'; ?>
+    
+    <!-- PHP backend integration will handle:
+    1. Product data fetching from database
+    2. Reviews system with user authentication
+    3. Add to cart functionality with session management
+    4. Related/similar products recommendations
+    5. Inventory tracking and stock updates
+    -->
 
     <div class="container mx-auto px-4 py-8">
         <!-- Breadcrumb Navigation -->
