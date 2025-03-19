@@ -54,10 +54,10 @@ $orders = $stmt->fetchAll();
         <!-- Account Navigation -->
         <div class="bg-white rounded-lg shadow-sm overflow-hidden mb-6">
             <div class="flex flex-wrap border-b border-gray-200">
-                <a href="#" class="text-orange-500 border-b-2 border-orange-500 py-3 px-6 font-medium">Account Overview</a>
-                <a href="orders.php" class="text-gray-500 hover:text-orange-500 py-3 px-6 font-medium">Orders</a>
-                <a href="wishlist.php" class="text-gray-500 hover:text-orange-500 py-3 px-6 font-medium">Wishlist</a>
-                <a href="edit_profile.php" class="text-gray-500 hover:text-orange-500 py-3 px-6 font-medium">Edit Profile</a>
+                <a href="#" class="text-blue-500 border-b-2 border-blue-500 py-3 px-6 font-medium">Account Overview</a>
+                <a href="orders.php" class="text-gray-500 hover:text-blue-500 py-3 px-6 font-medium">Orders</a>
+                <a href="wishlist.php" class="text-gray-500 hover:text-blue-500 py-3 px-6 font-medium">Wishlist</a>
+                <a href="edit_profile.php" class="text-gray-500 hover:text-blue-500 py-3 px-6 font-medium">Edit Profile</a>
             </div>
         </div>
         
@@ -67,7 +67,7 @@ $orders = $stmt->fetchAll();
             <div class="bg-white rounded-lg shadow-sm overflow-hidden">
                 <div class="p-4 border-b border-gray-200 flex justify-between items-center">
                     <h2 class="text-lg font-medium">Account Information</h2>
-                    <a href="edit_profile.php" class="text-orange-500 hover:underline text-sm">Edit</a>
+                    <a href="edit_profile.php" class="text-blue-500 hover:underline text-sm">Edit</a>
                 </div>
                 <div class="p-6">
                     <div class="mb-4">
@@ -93,7 +93,7 @@ $orders = $stmt->fetchAll();
             <div class="bg-white rounded-lg shadow-sm overflow-hidden">
                 <div class="p-4 border-b border-gray-200 flex justify-between items-center">
                     <h2 class="text-lg font-medium">Address Book</h2>
-                    <a href="edit_address.php" class="text-orange-500 hover:underline text-sm">Add New Address</a>
+                    <a href="edit_address.php" class="text-blue-500 hover:underline text-sm">Add New Address</a>
                 </div>
                 <div class="p-6">
                     <?php if (count($addresses) > 0): ?>
@@ -122,7 +122,7 @@ $orders = $stmt->fetchAll();
                     <?php else: ?>
                         <div class="text-center py-4">
                             <p class="text-gray-600 mb-4">You don't have any saved addresses.</p>
-                            <a href="edit_address.php" class="bg-orange-500 hover:bg-orange-600 text-white py-2 px-4 rounded-md inline-block transition">
+                            <a href="edit_address.php" class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-md inline-block transition">
                                 Add New Address
                             </a>
                         </div>
@@ -134,7 +134,7 @@ $orders = $stmt->fetchAll();
             <div class="bg-white rounded-lg shadow-sm overflow-hidden md:col-span-2">
                 <div class="p-4 border-b border-gray-200 flex justify-between items-center">
                     <h2 class="text-lg font-medium">Recent Orders</h2>
-                    <a href="orders.php" class="text-orange-500 hover:underline text-sm">View All Orders</a>
+                    <a href="orders.php" class="text-blue-500 hover:underline text-sm">View All Orders</a>
                 </div>
                 <div class="overflow-x-auto">
                     <?php if (count($orders) > 0): ?>
@@ -208,7 +208,7 @@ $orders = $stmt->fetchAll();
                     <?php else: ?>
                         <div class="text-center py-8">
                             <p class="text-gray-600 mb-4">You haven't placed any orders yet.</p>
-                            <a href="index.php" class="bg-orange-500 hover:bg-orange-600 text-white py-2 px-4 rounded-md inline-block transition">
+                            <a href="index.php" class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-md inline-block transition">
                                 Start Shopping
                             </a>
                         </div>
@@ -220,7 +220,7 @@ $orders = $stmt->fetchAll();
             <div class="bg-white rounded-lg shadow-sm overflow-hidden">
                 <div class="p-4 border-b border-gray-200 flex justify-between items-center">
                     <h2 class="text-lg font-medium">Newsletter Preferences</h2>
-                    <a href="newsletter_pref.php" class="text-orange-500 hover:underline text-sm">Edit</a>
+                    <a href="newsletter_pref.php" class="text-blue-500 hover:underline text-sm">Edit</a>
                 </div>
                 <div class="p-6">
                     <p class="text-gray-600">Manage your email communications to stay updated with the latest news and offers.</p>
@@ -251,7 +251,7 @@ $orders = $stmt->fetchAll();
                     <p class="text-gray-600 text-sm">
                         Store credit is a payment method that can be used for future purchases. Store credit is issued when you return an item and can be used to purchase anything on the site.
                     </p>
-                    <a href="#" class="text-orange-500 hover:underline text-sm mt-2 inline-block">Learn more</a>
+                    <a href="#" class="text-blue-500 hover:underline text-sm mt-2 inline-block">Learn more</a>
                 </div>
             </div>
         </div>
