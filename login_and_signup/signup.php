@@ -25,12 +25,12 @@ if (isset($_SESSION['user_id'])) {
         <div class="max-w-md w-full space-y-8">
             <div class="text-center">
                 <a href="../index.php" class="inline-block">
-                    <h2 class="text-3xl font-bold text-orange-500">TUKOLE <span class="text-blue-600 text-sm">business</span></h2>
+                    <h2 class="text-3xl font-bold text-blue-500">TUKOLE <span class="text-blue-600 text-sm">business</span></h2>
                 </a>
                 <h2 class="mt-6 text-3xl font-extrabold text-gray-900">Create a new account</h2>
                 <p class="mt-2 text-sm text-gray-600">
                     Or
-                    <a href="login.php" class="font-medium text-orange-500 hover:text-orange-600">
+                    <a href="login.php" class="font-medium text-blue-500 hover:text-blue-600">
                         sign in to your existing account
                     </a>
                 </p>
@@ -47,53 +47,53 @@ if (isset($_SESSION['user_id'])) {
                 <div class="rounded-md shadow-sm space-y-4">
                     <div>
                         <label for="username" class="block text-sm font-medium text-gray-700">Username</label>
-                        <input id="username" name="username" type="text" required class="appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-orange-500 focus:border-orange-500 focus:z-10 sm:text-sm" placeholder="Username">
+                        <input id="username" name="username" type="text" required class="appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm" placeholder="Username">
                     </div>
                     
                     <div class="grid grid-cols-2 gap-4">
                         <div>
                             <label for="first_name" class="block text-sm font-medium text-gray-700">First Name</label>
-                            <input id="first_name" name="first_name" type="text" required class="appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-orange-500 focus:border-orange-500 focus:z-10 sm:text-sm" placeholder="First Name">
+                            <input id="first_name" name="first_name" type="text" required class="appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm" placeholder="First Name">
                         </div>
                         <div>
                             <label for="last_name" class="block text-sm font-medium text-gray-700">Last Name</label>
-                            <input id="last_name" name="last_name" type="text" required class="appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-orange-500 focus:border-orange-500 focus:z-10 sm:text-sm" placeholder="Last Name">
+                            <input id="last_name" name="last_name" type="text" required class="appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm" placeholder="Last Name">
                         </div>
                     </div>
                     
                     <div>
                         <label for="email" class="block text-sm font-medium text-gray-700">Email address</label>
-                        <input id="email" name="email" type="email" autocomplete="email" required class="appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-orange-500 focus:border-orange-500 focus:z-10 sm:text-sm" placeholder="Email address">
+                        <input id="email" name="email" type="email" autocomplete="email" required class="appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm" placeholder="Email address">
                     </div>
                     
                     <div>
                         <label for="phone" class="block text-sm font-medium text-gray-700">Phone Number</label>
-                        <input id="phone" name="phone" type="tel" class="appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-orange-500 focus:border-orange-500 focus:z-10 sm:text-sm" placeholder="e.g. 07xxxxxxxxx">
+                        <input id="phone" name="phone" type="tel" class="appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm" placeholder="e.g. 07xxxxxxxxx">
                     </div>
                     
                     <div>
                         <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
-                        <input id="password" name="password" type="password" required class="appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-orange-500 focus:border-orange-500 focus:z-10 sm:text-sm" placeholder="Password">
+                        <input id="password" name="password" type="password" required class="appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm" placeholder="Password">
                     </div>
                     
                     <div>
                         <label for="conf_password" class="block text-sm font-medium text-gray-700">Confirm Password</label>
-                        <input id="conf_password" name="conf_password" type="password" required class="appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-orange-500 focus:border-orange-500 focus:z-10 sm:text-sm" placeholder="Confirm Password">
+                        <input id="conf_password" name="conf_password" type="password" required class="appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm" placeholder="Confirm Password">
                     </div>
                 </div>
 
                 <div class="flex items-center">
-                    <input id="terms" name="terms" type="checkbox" required class="h-4 w-4 text-orange-500 focus:ring-orange-500 border-gray-300 rounded">
+                    <input id="terms" name="terms" type="checkbox" required class="h-4 w-4 text-blue-500 focus:ring-blue-500 border-gray-300 rounded">
                     <label for="terms" class="ml-2 block text-sm text-gray-900">
                         I agree to the 
-                        <a href="#" class="text-orange-500 hover:text-orange-600">Terms and Conditions</a>
+                        <a href="#" class="text-blue-500 hover:text-blue-600">Terms and Conditions</a>
                         and
-                        <a href="#" class="text-orange-500 hover:text-orange-600">Privacy Policy</a>
+                        <a href="#" class="text-blue-500 hover:text-blue-600">Privacy Policy</a>
                     </label>
                 </div>
 
                 <div>
-                    <button type="submit" class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-orange-500 hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500">
+                    <button type="submit" class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-500 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
                         <span class="absolute left-0 inset-y-0 flex items-center pl-3">
                             <i class="fas fa-user-plus"></i>
                         </span>
@@ -130,7 +130,7 @@ if (isset($_SESSION['user_id'])) {
             </div>
             
             <div class="text-center mt-6">
-                <a href="../index.php" class="text-sm text-gray-600 hover:text-orange-500">
+                <a href="../index.php" class="text-sm text-gray-600 hover:text-blue-500">
                     <i class="fas fa-arrow-left mr-1"></i> Back to Home
                 </a>
             </div>
