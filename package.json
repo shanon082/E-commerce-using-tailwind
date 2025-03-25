@@ -1,7 +1,25 @@
 {
-  "dependencies": {
-    "@tailwindcss/cli": "^4.0.15",
-    "tailwind": "^4.0.0",
+  "name": "ecomm",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tailwindcss -i ./style.css -o ./style.css --minify"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shanon082/E-commerce-using-tailwind.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/shanon082/E-commerce-using-tailwind/issues"
+  },
+  "homepage": "https://github.com/shanon082/E-commerce-using-tailwind#readme",
+  "devDependencies": {
     "tailwindcss": "^4.0.15"
   }
 }
