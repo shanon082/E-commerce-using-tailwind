@@ -26,7 +26,8 @@ $latestProducts = $stmt->fetchAll(PDO::FETCH_ASSOC);
   <title>TUKOLE Business - Your Online Shopping Destination</title>
   <link rel="stylesheet" href="assets/css/tailwind.css" />
   <link rel="stylesheet" href="assets/css/styles.css" />
-  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="./style.css" rel="stylesheet">
+  <!-- <script src="https://cdn.tailwindcss.com"></script> -->
   <script src="https://kit.fontawesome.com/b27d0ab5e4.js" crossorigin="anonymous"></script>
 </head>
 
