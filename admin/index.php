@@ -328,7 +328,7 @@ try {
                             '<?php echo htmlspecialchars(substr($product['name'], 0, 15)) . (strlen($product['name']) > 15 ? '...' : ''); ?>',
                         <?php endforeach; ?>
                     <?php else: ?>
-                        'No Data'
+                        //'No Data',
                     <?php endif; ?>
                 ],
                 datasets: [{
@@ -339,7 +339,7 @@ try {
                                 <?php echo $product['total_sold']; ?>,
                             <?php endforeach; ?>
                         <?php else: ?>
-                            0
+                           // 0,
                         <?php endif; ?>
                     ],
                     backgroundColor: 'rgba(245, 158, 11, 0.5)',

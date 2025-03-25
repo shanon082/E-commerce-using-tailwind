@@ -37,7 +37,7 @@ $latestProducts = $stmt->fetchAll(PDO::FETCH_ASSOC);
   <section class="relative overflow-hidden bg-white">
     <div class="slideshow-container w-full">
       <div class="slide fade">
-        <img src="https://images.unsplash.com/photo-1611186871348-b1ce696e52c9" alt="Electronics" class="w-full h-64 md:h-80 lg:h-96 object-cover" />
+        <img src="./assets/images/electronics.png" alt="Electronics" class="w-full h-64 md:h-80 lg:h-96 object-cover" />
         <div class="absolute inset-0 flex items-center bg-gradient-to-r from-black/60 to-transparent p-8">
           <div class="text-white max-w-md">
             <h3 class="text-2xl md:text-3xl lg:text-4xl font-bold mb-2">Latest Electronics <br />& Gadgets</h3>
@@ -47,7 +47,7 @@ $latestProducts = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </div>
       </div>
       <div class="slide fade hidden">
-        <img src="https://images.unsplash.com/3/www.madebyvadim.com.jpg" alt="Fashion" class="w-full h-64 md:h-80 lg:h-96 object-cover" />
+        <img src="./assets/images/fashion.png" alt="Fashion" class="w-full h-64 md:h-80 lg:h-96 object-cover" />
         <div class="absolute inset-0 flex items-center bg-gradient-to-r from-black/60 to-transparent p-8">
           <div class="text-white max-w-md">
             <h3 class="text-2xl md:text-3xl lg:text-4xl font-bold mb-2">Trendy Fashion <br />& Clothing</h3>
@@ -57,7 +57,7 @@ $latestProducts = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </div>
       </div>
       <div class="slide fade hidden">
-        <img src="https://images.unsplash.com/photo-1524634126442-357e0eac3c14" alt="Home Products" class="w-full h-64 md:h-80 lg:h-96 object-cover" />
+        <img src="./assets/images/quality.png" alt="Home Products" class="w-full h-64 md:h-80 lg:h-96 object-cover" />
         <div class="absolute inset-0 flex items-center bg-gradient-to-r from-black/60 to-transparent p-8">
           <div class="text-white max-w-md">
             <h3 class="text-2xl md:text-3xl lg:text-4xl font-bold mb-2">Quality Home <br />Products</h3>
@@ -165,7 +165,7 @@ $latestProducts = $stmt->fetchAll(PDO::FETCH_ASSOC);
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
         <div class="bg-white rounded-lg border border-gray-200 overflow-hidden hover:shadow-md transition">
           <a href="product_description.php?id=1">
-            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e" alt="Headphones" class="w-full h-40 object-cover" />
+            <img src="./assets/images/headphones.png" alt="Headphones" class="w-full h-40 object-cover" />
             <div class="p-3">
               <h3 class="text-sm font-medium">Premium Headphones</h3>
               <div class="flex items-center mt-1">
@@ -189,9 +189,9 @@ $latestProducts = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </div>
         <div class="bg-white rounded-lg border border-gray-200 overflow-hidden hover:shadow-md transition">
           <a href="product_description.php?id=2">
-            <img src="https://images.unsplash.com/photo-1699796990049-3406a9991baa" alt="Smartwatch" class="w-full h-40 object-cover" />
+            <img src="./assets/images/ram.png" alt="Smartwatch" class="w-full h-40 object-cover" />
             <div class="p-3">
-              <h3 class="text-sm font-medium">Smart Watch Pro</h3>
+              <h3 class="text-sm font-medium">Ram Chips</h3>
               <div class="flex items-center mt-1">
                 <span class="text-blue-500 font-bold">$149.99</span>
                 <span class="ml-2 text-gray-400 text-xs line-through">$199.99</span>
@@ -213,7 +213,7 @@ $latestProducts = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </div>
         <div class="bg-white rounded-lg border border-gray-200 overflow-hidden hover:shadow-md transition">
           <a href="product_description.php?id=3">
-            <img src="https://images.unsplash.com/photo-1698440050363-1697e5f0277c" alt="Bluetooth Speaker" class="w-full h-40 object-cover" />
+            <img src="./assets/images/digitalcam.png" alt="Bluetooth Speaker" class="w-full h-40 object-cover" />
             <div class="p-3">
               <h3 class="text-sm font-medium">Portable Bluetooth Speaker</h3>
               <div class="flex items-center mt-1">
@@ -237,7 +237,7 @@ $latestProducts = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </div>
         <div class="bg-white rounded-lg border border-gray-200 overflow-hidden hover:shadow-md transition">
           <a href="product_description.php?id=4">
-            <img src="https://images.unsplash.com/photo-1712701815718-29f5fe510c0e" alt="Digital Camera" class="w-full h-40 object-cover" />
+            <img src="./assets/images/speaker.png" alt="Digital Camera" class="w-full h-40 object-cover" />
             <div class="p-3">
               <h3 class="text-sm font-medium">Digital Camera 4K</h3>
               <div class="flex items-center mt-1">
@@ -273,9 +273,9 @@ $latestProducts = $stmt->fetchAll(PDO::FETCH_ASSOC);
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
         <div class="bg-white rounded-lg border border-gray-200 overflow-hidden hover:shadow-md transition">
           <a href="product_description.php?id=5">
-            <img src="https://images.unsplash.com/photo-1626947346165-4c2288dadc2a" alt="Men's Watch" class="w-full h-40 object-cover" />
+            <img src="./assets/images/shoe.png" alt="Men's Watch" class="w-full h-40 object-cover" />
             <div class="p-3">
-              <h3 class="text-sm font-medium">Men's Classic Watch</h3>
+              <h3 class="text-sm font-medium">Men's Classic Wear</h3>
               <div class="flex items-center mt-1">
                 <span class="text-blue-500 font-bold">$129.99</span>
                 <span class="ml-2 text-gray-400 text-xs line-through">$179.99</span>
@@ -297,7 +297,7 @@ $latestProducts = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </div>
         <div class="bg-white rounded-lg border border-gray-200 overflow-hidden hover:shadow-md transition">
           <a href="product_description.php?id=6">
-            <img src="https://images.unsplash.com/photo-1523464771852-de9293765f7a" alt="Women's Handbag" class="w-full h-40 object-cover" />
+            <img src="./assets/images/all.png" alt="Women's Handbag" class="w-full h-40 object-cover" />
             <div class="p-3">
               <h3 class="text-sm font-medium">Designer Handbag</h3>
               <div class="flex items-center mt-1">
@@ -321,7 +321,7 @@ $latestProducts = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </div>
         <div class="bg-white rounded-lg border border-gray-200 overflow-hidden hover:shadow-md transition">
           <a href="product_description.php?id=7">
-            <img src="https://images.unsplash.com/photo-1523194258983-4ef0203f0c47" alt="Sunglasses" class="w-full h-40 object-cover" />
+            <img src="./assets/images/glasses.png" alt="Sunglasses" class="w-full h-40 object-cover" />
             <div class="p-3">
               <h3 class="text-sm font-medium">Premium Sunglasses</h3>
               <div class="flex items-center mt-1">
@@ -345,7 +345,7 @@ $latestProducts = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </div>
         <div class="bg-white rounded-lg border border-gray-200 overflow-hidden hover:shadow-md transition">
           <a href="product_description.php?id=8">
-            <img src="https://images.unsplash.com/3/www.madebyvadim.com.jpg" alt="Leather Wallet" class="w-full h-40 object-cover" />
+            <img src="./assets/images/fashion.png" alt="Leather Wallet" class="w-full h-40 object-cover" />
             <div class="p-3">
               <h3 class="text-sm font-medium">Leather Wallet</h3>
               <div class="flex items-center mt-1">
@@ -381,7 +381,7 @@ $latestProducts = $stmt->fetchAll(PDO::FETCH_ASSOC);
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
         <div class="bg-white rounded-lg border border-gray-200 overflow-hidden hover:shadow-md transition">
           <a href="product_description.php?id=9">
-            <img src="https://images.unsplash.com/photo-1524634126442-357e0eac3c14" alt="Table Lamp" class="w-full h-40 object-cover" />
+            <img src="./assets/images/bathroom.png" alt="Table Lamp" class="w-full h-40 object-cover" />
             <div class="p-3">
               <h3 class="text-sm font-medium">Modern Table Lamp</h3>
               <div class="flex items-center mt-1">
@@ -405,7 +405,7 @@ $latestProducts = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </div>
         <div class="bg-white rounded-lg border border-gray-200 overflow-hidden hover:shadow-md transition">
           <a href="product_description.php?id=10">
-            <img src="https://images.unsplash.com/photo-1592136957897-b2b6ca21e10d" alt="Decorative Pillow" class="w-full h-40 object-cover" />
+            <img src="./assets/images/women.png" alt="Decorative Pillow" class="w-full h-40 object-cover" />
             <div class="p-3">
               <h3 class="text-sm font-medium">Decorative Pillow Set</h3>
               <div class="flex items-center mt-1">
@@ -429,9 +429,9 @@ $latestProducts = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </div>
         <div class="bg-white rounded-lg border border-gray-200 overflow-hidden hover:shadow-md transition">
           <a href="product_description.php?id=11">
-            <img src="https://images.unsplash.com/photo-1597817109745-c418f4875230" alt="Coffee Mug" class="w-full h-40 object-cover" />
+            <img src="./assets/images/electronics.png" alt="Coffee Mug" class="w-full h-40 object-cover" />
             <div class="p-3">
-              <h3 class="text-sm font-medium">Designer Coffee Mug</h3>
+              <h3 class="text-sm font-medium">Super computer</h3>
               <div class="flex items-center mt-1">
                 <span class="text-blue-500 font-bold">$14.99</span>
                 <span class="ml-2 text-gray-400 text-xs line-through">$19.99</span>
@@ -453,7 +453,7 @@ $latestProducts = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </div>
         <div class="bg-white rounded-lg border border-gray-200 overflow-hidden hover:shadow-md transition">
           <a href="product_description.php?id=12">
-            <img src="https://images.unsplash.com/photo-1542435503-956c469947f6" alt="Desk Organizer" class="w-full h-40 object-cover" />
+            <img src="./assets/images/quality.png" alt="Desk Organizer" class="w-full h-40 object-cover" />
             <div class="p-3">
               <h3 class="text-sm font-medium">Wooden Desk Organizer</h3>
               <div class="flex items-center mt-1">
@@ -484,7 +484,7 @@ $latestProducts = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <div class="container mx-auto px-4">
       <div class="flex flex-col md:flex-row items-center gap-8">
         <div class="md:w-1/2">
-          <img src="https://images.unsplash.com/photo-1698440050363-1697e5f0277c" alt="About Us" class="rounded-lg shadow-md w-full" />
+          <img src="./assets/images/digitalcam.png" alt="About Us" class="rounded-lg shadow-md w-full" />
         </div>
         <div class="md:w-1/2">
           <p class="text-blue-500 font-semibold">About Us</p>
@@ -510,7 +510,9 @@ $latestProducts = $stmt->fetchAll(PDO::FETCH_ASSOC);
       <div class="grid md:grid-cols-3 gap-6">
         <div class="bg-white p-6 rounded-lg shadow-sm">
           <div class="flex items-center mb-4">
-            <div class="w-12 h-12 bg-gray-200 rounded-full mr-4"></div>
+            <div class="w-12 h-12 bg-gray-200 rounded-full mr-4">
+              <img src="./assets/images/person1.png" alt="person 1" class="w-full h-full object-cover rounded-full" />
+            </div>
             <div>
               <h4 class="font-medium">John Doe</h4>
               <div class="flex text-yellow-400">
@@ -526,7 +528,9 @@ $latestProducts = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </div>
         <div class="bg-white p-6 rounded-lg shadow-sm">
           <div class="flex items-center mb-4">
-            <div class="w-12 h-12 bg-gray-200 rounded-full mr-4"></div>
+            <div class="w-12 h-12 bg-gray-200 rounded-full mr-4">
+              <img src="./assets/images/person2.png" alt="person 2" class="w-full h-full object-cover rounded-full" />
+            </div>
             <div>
               <h4 class="font-medium">Sarah Smith</h4>
               <div class="flex text-yellow-400">
@@ -542,7 +546,9 @@ $latestProducts = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </div>
         <div class="bg-white p-6 rounded-lg shadow-sm">
           <div class="flex items-center mb-4">
-            <div class="w-12 h-12 bg-gray-200 rounded-full mr-4"></div>
+            <div class="w-12 h-12 bg-gray-200 rounded-full mr-4">
+              <img src="./assets/images/person3.png" alt="person 3" class="w-full h-full object-cover rounded-full" />
+            </div>
             <div>
               <h4 class="font-medium">Michael Johnson</h4>
               <div class="flex text-yellow-400">
