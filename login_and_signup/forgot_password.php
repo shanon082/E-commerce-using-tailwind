@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forgot Password - TUKOLE Business</title>
+    <link rel="stylesheet" href="../assets/css/tailwind.css">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+    <div class="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-md w-full space-y-8">
+            <div class="text-center">
+                <a href="../index.php" class="inline-block">
+                    <h2 class="text-3xl font-bold text-orange-500">TUKOLE <span class="text-blue-600 text-sm">business</span></h2>
+                </a>
+                <h2 class="mt-6 text-3xl font-extrabold text-gray-900">Recover Your Password</h2>
+                <p class="mt-2 text-sm text-gray-600">
+                    Enter your registered email to receive an OTP.
+                </p>
+            </div>
+            <form class="mt-8 space-y-6" action="send_otp.php" method="POST">
+                <div class="rounded-md shadow-sm -space-y-px">
+                    <div>
+                        <label for="email" class="sr-only">Email address</label>
+                        <input id="email" name="email" type="email" autocomplete="email" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-orange-500 focus:border-orange-500 focus:z-10 sm:text-sm" placeholder="Email address">
+                    </div>
+                </div>
+                <div>
+                    <button type="submit" class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-orange-500 hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500">
+                        Send OTP
+                    </button>
+                </div>
+            </form>
+            <div class="text-center mt-6">
+                <a href="../index.php" class="text-sm text-gray-600 hover:text-orange-500">
+                    <i class="fas fa-arrow-left mr-1"></i> Back to Home
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

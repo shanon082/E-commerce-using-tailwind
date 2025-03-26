@@ -28,12 +28,12 @@ $redirect = isset($_GET['redirect']) ? $_GET['redirect'] : 'index.php';
         <div class="max-w-md w-full space-y-8">
             <div class="text-center">
                 <a href="../index.php" class="inline-block">
-                    <h2 class="text-3xl font-bold text-blue-500">TUKOLE <span class="text-blue-600 text-sm">business</span></h2>
+                    <h2 class="text-3xl font-bold text-orange-500">TUKOLE <span class="text-blue-600 text-sm">business</span></h2>
                 </a>
                 <h2 class="mt-6 text-3xl font-extrabold text-gray-900">Sign in to your account</h2>
                 <p class="mt-2 text-sm text-gray-600">
                     Or
-                    <a href="signup.php" class="font-medium text-blue-500 hover:text-blue-600">
+                    <a href="signup.php" class="font-medium text-orange-500 hover:text-orange-600">
                         create a new account
                     </a>
                 </p>
@@ -59,31 +59,31 @@ $redirect = isset($_GET['redirect']) ? $_GET['redirect'] : 'index.php';
                 <div class="rounded-md shadow-sm -space-y-px">
                     <div>
                         <label for="email" class="sr-only">Email address</label>
-                        <input id="email" name="email" type="email" autocomplete="email" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm" placeholder="Email address">
+                        <input id="email" name="email" type="email" autocomplete="email" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-orange-500 focus:border-orange-500 focus:z-10 sm:text-sm" placeholder="Email address">
                     </div>
                     <div>
                         <label for="password" class="sr-only">Password</label>
-                        <input id="password" name="password" type="password" autocomplete="current-password" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm" placeholder="Password">
+                        <input id="password" name="password" type="password" autocomplete="current-password" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-orange-500 focus:border-orange-500 focus:z-10 sm:text-sm" placeholder="Password">
                     </div>
                 </div>
 
                 <div class="flex items-center justify-between">
                     <div class="flex items-center">
-                        <input id="remember-me" name="remember_me" type="checkbox" class="h-4 w-4 text-blue-500 focus:ring-blue-500 border-gray-300 rounded">
+                        <input id="remember-me" name="remember_me" type="checkbox" class="h-4 w-4 text-orange-500 focus:ring-orange-500 border-gray-300 rounded">
                         <label for="remember-me" class="ml-2 block text-sm text-gray-900">
                             Remember me
                         </label>
                     </div>
 
                     <div class="text-sm">
-                        <a href="forgot_password.php" class="font-medium text-blue-500 hover:text-blue-600">
+                        <a href="forgot_password.php" class="font-medium text-orange-500 hover:text-orange-600">
                             Forgot your password?
                         </a>
                     </div>
                 </div>
 
                 <div>
-                    <button type="submit" class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-500 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                    <button type="submit" class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-orange-500 hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500">
                         <span class="absolute left-0 inset-y-0 flex items-center pl-3">
                             <i class="fas fa-sign-in-alt"></i>
                         </span>
@@ -113,14 +113,14 @@ $redirect = isset($_GET['redirect']) ? $_GET['redirect'] : 'index.php';
 
                     <div>
                         <a href="#" class="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-700 hover:bg-gray-50">
-                            <i class="fab fa-facebook text-blue-600 text-lg"></i>
+                            <i class="fab fa-facebook text-orange-600 text-lg"></i>
                         </a>
                     </div>
                 </div>
             </div>
             
             <div class="text-center mt-6">
-                <a href="../index.php" class="text-sm text-gray-600 hover:text-blue-500">
+                <a href="../index.php" class="text-sm text-gray-600 hover:text-orange-500">
                     <i class="fas fa-arrow-left mr-1"></i> Back to Home
                 </a>
             </div>

@@ -118,7 +118,7 @@ if (session_status() === PHP_SESSION_NONE) {
                 <!-- Logo and Mobile Menu -->
                 <div class="flex items-center justify-between w-full md:w-auto mb-4 md:mb-0">
                     <a href="index.php" class="flex items-center">
-                        <h2 class="text-2xl font-bold text-blue-500">TUKOLE <span class="text-blue-700 text-sm">business</span></h2>
+                        <h2 class="text-2xl font-bold text-orange-500">TUKOLE <span class="text-blue-700 text-sm">business</span></h2>
                     </a>
                     <button class="md:hidden" id="mobile-menu-button">
                         <i class="fas fa-bars text-gray-600 text-xl"></i>
