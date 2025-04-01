@@ -1,3 +1,35 @@
+<?php 
+require_once '../db.php';
+
+// Define a default profile image
+$defaultProfileImage = './assets/images/default-profile.png';
+
+// Fetch the user's profile image from the database
+if (isset($_SESSION['user_id'])) {
+    try {
+        $stmt = $conn->prepare("SELECT profile_image FROM users WHERE id = :id");
+        $stmt->bindParam(':id', $_SESSION['user_id'], PDO::PARAM_INT);
+        $stmt->execute();
+        $userProfileImage = $stmt->fetchColumn();
+
+        // Log if no profile image is found
+        if (!$userProfileImage) {
+            error_log("No profile image found for user ID: " . $_SESSION['user_id']);
+        }
+
+        // Use the default image if no profile image is set
+        $userProfileImage = $userProfileImage ?: $defaultProfileImage;
+    } catch (PDOException $e) {
+        error_log("Error fetching profile image: " . $e->getMessage());
+        $userProfileImage = $defaultProfileImage;
+    }
+} else {
+    error_log("User ID not set in session.");
+    $userProfileImage = $defaultProfileImage;
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,12 +60,17 @@
                     </div>
                     <div class="relative group">
                         <button class="flex items-center text-gray-300 hover:text-white focus:outline-none">
+                            <img 
+                                src="<?php echo htmlspecialchars($userProfileImage); ?>" 
+                                alt="Profile" 
+                                class="w-8 h-8 rounded-full mr-2"
+                            />
                             <span class="mr-1">
                                 <?php echo isset($_SESSION['username']) ? htmlspecialchars($_SESSION['username']) : 'Admin'; ?>
                             </span>
                             <i class="fas fa-chevron-down text-xs"></i>
                         </button>
-                        <div class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-10 hidden group-hover:block">
+                        <div class="absolute right-0 w-48 bg-white rounded-md shadow-lg py-1 z-10 hidden group-hover:block">
                             <a href="../myAccount.php" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">My Profile</a>
                             <a href="../login_and_signup/logout.php" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Logout</a>
                         </div>

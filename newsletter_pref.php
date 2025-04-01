@@ -54,7 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <div class="container mx-auto px-4 py-8">
         <div class="flex items-center mb-6">
-            <a href="myAccount.php" class="text-orange-500 hover:underline mr-2">
+            <a href="myAccount.php" class="text-blue-500 hover:underline mr-2">
                 <i class="fas fa-arrow-left"></i> Back to My Account
             </a>
             <h1 class="text-2xl font-bold">Newsletter Preferences</h1>
@@ -94,7 +94,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 type="radio" 
                                 value="yes" 
                                 <?php echo (isset($user['newsletter']) && $user['newsletter']) ? 'checked' : ''; ?>
-                                class="h-4 w-4 text-orange-500 focus:ring-orange-500 border-gray-300"
+                                class="h-4 w-4 text-blue-500 focus:ring-blue-500 border-gray-300"
                             >
                         </div>
                         <div class="ml-3 text-sm">
@@ -111,7 +111,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 type="radio" 
                                 value="no" 
                                 <?php echo (!isset($user['newsletter']) || !$user['newsletter']) ? 'checked' : ''; ?>
-                                class="h-4 w-4 text-orange-500 focus:ring-orange-500 border-gray-300"
+                                class="h-4 w-4 text-blue-500 focus:ring-blue-500 border-gray-300"
                             >
                         </div>
                         <div class="ml-3 text-sm">
@@ -127,7 +127,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 name="terms" 
                                 type="checkbox" 
                                 required
-                                class="h-4 w-4 text-orange-500 focus:ring-orange-500 border-gray-300 rounded"
+                                class="h-4 w-4 text-blue-500 focus:ring-blue-500 border-gray-300 rounded"
                             >
                         </div>
                         <div class="ml-3 text-sm">
@@ -140,7 +140,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <div class="mt-6">
                     <button 
                         type="submit" 
-                        class="bg-orange-500 border border-transparent rounded-md shadow-sm py-2 px-4 text-sm font-medium text-white hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500"
+                        class="bg-blue-500 border border-transparent rounded-md shadow-sm py-2 px-4 text-sm font-medium text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
                     >
                         Save Preferences
                     </button>

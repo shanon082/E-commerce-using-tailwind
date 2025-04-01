@@ -3,6 +3,22 @@
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
+
+// Define a default profile image
+$defaultProfileImage = './assets/images/default-profile.png';
+
+// Fetch the user's profile image from the database
+if (isset($_SESSION['user_id'])) {
+    $stmt = $conn->prepare("SELECT profile_image FROM users WHERE id = :id");
+    $stmt->bindParam(':id', $_SESSION['user_id']);
+    $stmt->execute();
+    $userProfileImage = $stmt->fetchColumn();
+
+    // Use the default image if no profile image is set
+    $userProfileImage = $userProfileImage ?: './assets/images/default-profile.png';
+} else {
+    $userProfileImage = './assets/images/default-profile.png';
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -146,7 +162,11 @@ if (session_status() === PHP_SESSION_NONE) {
                     <div class="dropdown relative group">
                         <?php if (isset($_SESSION['username'])): ?>
                             <a href="#" class="flex items-center text-gray-700 hover:text-blue-500 transition">
-                                <i class="fas fa-user-circle mr-1 text-blue-500"></i>
+                                <img 
+                                    src="<?php echo htmlspecialchars($userProfileImage); ?>" 
+                                    alt="Profile" 
+                                    class="w-8 h-8 rounded-full mr-2"
+                                />
                                 <span>Hi, <?php echo htmlspecialchars($_SESSION['username']); ?></span>
                                 <i class="fas fa-chevron-down ml-1 text-xs"></i>
                             </a>

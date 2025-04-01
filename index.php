@@ -42,7 +42,7 @@ $latestProducts = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 //Fetch latest customer reviews
 $stmt = $conn->prepare("
-    SELECT r.*, u.username, p.name AS product_name 
+    SELECT r.*, u.username, u.profile_image, p.name AS product_name 
     FROM reviews r
     LEFT JOIN users u ON r.user_id = u.id
     LEFT JOIN products p ON r.product_id = p.id
@@ -343,7 +343,11 @@ $latestReviews = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     <div class="bg-white p-6 rounded-lg shadow-sm">
                         <div class="flex items-center mb-4">
                             <div class="w-12 h-12 bg-gray-200 rounded-full mr-4">
-                                <img src="./assets/images/default-avatar.png" alt="User Avatar" class="w-full h-full object-cover rounded-full" />
+                                <img 
+                                    src="<?php echo htmlspecialchars($review['profile_image'] ?? './assets/images/default-avatar.png'); ?>" 
+                                    alt="User Avatar" 
+                                    class="w-full h-full object-cover rounded-full" 
+                                />
                             </div>
                             <div>
                                 <h4 class="font-medium"><?php echo htmlspecialchars($review['username'] ?? 'Anonymous'); ?></h4>
