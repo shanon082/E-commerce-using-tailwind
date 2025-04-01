@@ -48,12 +48,15 @@ if ($reviewCount > 0) {
 }
 
 // Fetch similar products (same category)
-$stmt = $conn->prepare("SELECT * FROM products 
-                       WHERE category_id = :category_id AND id != :id 
-                       ORDER BY rating DESC 
-                       LIMIT 4");
-$stmt->bindParam(':category_id', $product['category_id']);
-$stmt->bindParam(':id', $product_id);
+$stmt = $conn->prepare("
+    SELECT * 
+    FROM products 
+    WHERE category_id = :category_id AND id != :id 
+    ORDER BY created_at DESC 
+    LIMIT 4
+");
+$stmt->bindParam(':category_id', $product['category_id'], PDO::PARAM_INT);
+$stmt->bindParam(':id', $product_id, PDO::PARAM_INT);
 $stmt->execute();
 $similarProducts = $stmt->fetchAll();
 
@@ -462,7 +465,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit_review'])) {
                             </div>
                             <div class="flex items-center mt-1 text-yellow-400 text-xs">
                                 <?php for ($i = 1; $i <= 5; $i++): ?>
-                                    <?php if ($i <= $similarProduct['rating']): ?>
+                                    <?php if ($i <= round($similarProduct['rating'])): ?>
                                         <i class="fas fa-star"></i>
                                     <?php elseif ($i - 0.5 <= $similarProduct['rating']): ?>
                                         <i class="fas fa-star-half-alt"></i>

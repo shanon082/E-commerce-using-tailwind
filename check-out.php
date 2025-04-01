@@ -32,6 +32,7 @@ $addresses = $stmt->fetchAll();
 if (isset($_POST['place_order'])) {
     $address_id = $_POST['address_id'];
     $payment_method = $_POST['payment_method'];
+    $mobile_number = $_POST['mobile_number'] ?? null;
     
     // Calculate order total
     $total = 0;
@@ -78,6 +79,19 @@ if (isset($_POST['place_order'])) {
             $update->execute();
         }
         
+        // if ($payment_method === 'mobile_money') {
+        //     // Example: Initiate mobile money payment using an API
+        //     try {
+        //         $response = initiateMobileMoneyPayment($mobile_number, $total, $order_id);
+        //         if (!$response['success']) {
+        //             throw new Exception("Mobile money payment failed: " . $response['message']);
+        //         }
+        //     } catch (Exception $e) {
+        //         $conn->rollBack();
+        //         $error = "There was a problem processing your mobile money payment. Please try again.";
+        //     }
+        // }
+        
         // Commit transaction
         $conn->commit();
         
@@ -94,6 +108,37 @@ if (isset($_POST['place_order'])) {
         $error = "There was a problem processing your order. Please try again.";
     }
 }
+
+// Example function to initiate mobile money payment
+// function initiateMobileMoneyPayment($mobile_number, $amount, $order_id) {
+//     // Replace with actual API integration
+//     $api_url = "https://api.mobilemoneyprovider.com/initiate-payment";
+//     $api_key = "your_api_key_here";
+
+//     $data = [
+//         'mobile_number' => $mobile_number,
+//         'amount' => $amount,
+//         'order_id' => $order_id,
+//         'callback_url' => "https://yourwebsite.com/payment-callback.php"
+//     ];
+
+//     $options = [
+//         'http' => [
+//             'header'  => "Content-type: application/json\r\nAuthorization: Bearer $api_key",
+//             'method'  => 'POST',
+//             'content' => json_encode($data),
+//         ],
+//     ];
+
+//     $context  = stream_context_create($options);
+//     $result = file_get_contents($api_url, false, $context);
+
+//     if ($result === FALSE) {
+//         return ['success' => false, 'message' => 'API request failed'];
+//     }
+
+//     return json_decode($result, true);
+// }
 
 // Calculate cart totals
 $subtotal = 0;
@@ -330,6 +375,7 @@ $total = $subtotal + $shipping;
                         
                         <div class="p-4">
                             <div class="grid gap-4">
+                                <!-- Cash on Delivery -->
                                 <div class="border border-gray-200 rounded-md p-4 border-blue-500">
                                     <div class="flex items-start">
                                         <div class="flex items-center h-5">
@@ -351,6 +397,7 @@ $total = $subtotal + $shipping;
                                     </div>
                                 </div>
                                 
+                                <!-- Credit/Debit Card -->
                                 <div class="border border-gray-200 rounded-md p-4">
                                     <div class="flex items-start">
                                         <div class="flex items-center h-5">
@@ -360,6 +407,7 @@ $total = $subtotal + $shipping;
                                                 type="radio" 
                                                 value="credit_card"
                                                 class="h-4 w-4 text-blue-500 focus:ring-blue-500"
+                                                onclick="togglePaymentDetails('card')"
                                             >
                                         </div>
                                         <div class="ml-3 text-sm">
@@ -374,8 +422,25 @@ $total = $subtotal + $shipping;
                                             </div>
                                         </div>
                                     </div>
+                                    <div id="card-details" class="mt-4 hidden">
+                                        <div class="mb-4">
+                                            <label for="card-number" class="block text-sm font-medium text-gray-700">Card Number</label>
+                                            <input type="text" id="card-number" name="card_number" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                                        </div>
+                                        <div class="grid grid-cols-2 gap-4">
+                                            <div>
+                                                <label for="expiry-date" class="block text-sm font-medium text-gray-700">Expiry Date</label>
+                                                <input type="text" id="expiry-date" name="expiry_date" placeholder="MM/YY" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                                            </div>
+                                            <div>
+                                                <label for="cvv" class="block text-sm font-medium text-gray-700">CVV</label>
+                                                <input type="text" id="cvv" name="cvv" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                                 
+                                <!-- Mobile Money -->
                                 <div class="border border-gray-200 rounded-md p-4">
                                     <div class="flex items-start">
                                         <div class="flex items-center h-5">
@@ -385,13 +450,30 @@ $total = $subtotal + $shipping;
                                                 type="radio" 
                                                 value="mobile_money"
                                                 class="h-4 w-4 text-blue-500 focus:ring-blue-500"
+                                                onclick="togglePaymentDetails('mobile')"
                                             >
                                         </div>
                                         <div class="ml-3 text-sm">
                                             <label for="payment-mobile" class="font-medium text-gray-700">Mobile Money</label>
                                             <div class="text-gray-500 mt-1">
-                                                <p>Pay using your mobile money account</p>
+                                                <p>Pay using your mobile money account. You will receive a prompt on your phone to complete the payment.</p>
                                             </div>
+                                        </div>
+                                    </div>
+                                    <div id="mobile-details" class="mt-4 hidden">
+                                        <div class="mb-4">
+                                            <label for="mobile-number" class="block text-sm font-medium text-gray-700">Mobile Number</label>
+                                            <input 
+                                                type="text" 
+                                                id="mobile-number" 
+                                                name="mobile_number" 
+                                                value="<?php echo htmlspecialchars($user['phone']); ?>" 
+                                                readonly 
+                                                class="mt-1 block w-full border-gray-300 rounded-md shadow-sm bg-gray-100 focus:ring-blue-500 focus:border-blue-500"
+                                            >
+                                        </div>
+                                        <div>
+                                            <p class="text-sm text-gray-500">A payment request will be sent to this number. Please approve it on your phone.</p>
                                         </div>
                                     </div>
                                 </div>
@@ -475,5 +557,17 @@ $total = $subtotal + $shipping;
     </div>
 
     <?php include 'footer.php'; ?>
+
+    <script>
+        function togglePaymentDetails(method) {
+            document.getElementById('card-details').classList.add('hidden');
+            document.getElementById('mobile-details').classList.add('hidden');
+            if (method === 'card') {
+                document.getElementById('card-details').classList.remove('hidden');
+            } else if (method === 'mobile') {
+                document.getElementById('mobile-details').classList.remove('hidden');
+            }
+        }
+    </script>
 </body>
 </html>

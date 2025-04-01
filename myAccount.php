@@ -97,8 +97,8 @@ $orders = $stmt->fetchAll();
                 </div>
                 <div class="p-6">
                     <?php if (count($addresses) > 0): ?>
-                        <?php foreach ($addresses as $address): ?>
-                            <div class="mb-4 pb-4 <?php echo !$loop->last ? 'border-b border-gray-200' : ''; ?>">
+                        <?php foreach ($addresses as $index => $address): ?>
+                            <div class="mb-4 pb-4 <?php echo $index !== array_key_last($addresses) ? 'border-b border-gray-200' : ''; ?>">
                                 <div class="flex items-center justify-between mb-2">
                                     <h3 class="font-medium">
                                         <?php echo $address['is_default'] ? 'Default Address' : 'Saved Address'; ?>
