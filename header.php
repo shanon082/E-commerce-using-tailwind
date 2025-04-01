@@ -150,7 +150,7 @@ if (session_status() === PHP_SESSION_NONE) {
                                 <span>Hi, <?php echo htmlspecialchars($_SESSION['username']); ?></span>
                                 <i class="fas fa-chevron-down ml-1 text-xs"></i>
                             </a>
-                            <ul class="dropdown-menu absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg z-10 py-2">
+                            <ul class="dropdown-menu absolute right-0 w-48 bg-white rounded-md shadow-lg z-10 py-2">
                                 <li><a href="myAccount.php" class="block px-4 py-2 text-gray-700 hover:bg-blue-100 hover:text-blue-500">My Account</a></li>
                                 <li><a href="orders.php" class="block px-4 py-2 text-gray-700 hover:bg-blue-100 hover:text-blue-500">Orders</a></li>
                                 <li><a href="wishlist.php" class="block px-4 py-2 text-gray-700 hover:bg-blue-100 hover:text-blue-500">Wishlist</a></li>
@@ -162,7 +162,7 @@ if (session_status() === PHP_SESSION_NONE) {
                                 <span>Account</span>
                                 <i class="fas fa-chevron-down ml-1 text-xs"></i>
                             </a>
-                            <ul class="dropdown-menu absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg z-10 py-2">
+                            <ul class="dropdown-menu absolute right-0 w-48 bg-white rounded-md shadow-lg z-10 py-2">
                                 <li><a href="login_and_signup/login.php" class="block px-4 py-2 text-gray-700 hover:bg-blue-100 hover:text-blue-500">Login</a></li>
                                 <li><a href="login_and_signup/signup.php" class="block px-4 py-2 text-gray-700 hover:bg-blue-100 hover:text-blue-500">Sign Up</a></li>
                             </ul>
@@ -176,7 +176,7 @@ if (session_status() === PHP_SESSION_NONE) {
                             <span>Help</span>
                             <i class="fas fa-chevron-down ml-1 text-xs"></i>
                         </a>
-                        <ul class="dropdown-menu absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg z-10 py-2">
+                        <ul class="dropdown-menu absolute right-0 w-48 bg-white rounded-md shadow-lg z-10 py-2">
                             <li><a href="#" class="block px-4 py-2 text-gray-700 hover:bg-blue-100 hover:text-blue-500">Help Center</a></li>
                             <li><a href="#" class="block px-4 py-2 text-gray-700 hover:bg-blue-100 hover:text-blue-500">Place an Order</a></li>
                             <li><a href="#" class="block px-4 py-2 text-gray-700 hover:bg-blue-100 hover:text-blue-500">Payment Options</a></li>

@@ -85,6 +85,52 @@ if (isset($_POST['add_to_cart'])) {
         exit;
     }
 }
+
+// Handle review submission
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit_review'])) {
+    if (!isset($_SESSION['user_id'])) {
+        $reviewError = "You must be logged in to submit a review.";
+    } else {
+        $rating = isset($_POST['rating']) ? intval($_POST['rating']) : 0;
+        $comment = trim($_POST['comment']);
+        $user_id = $_SESSION['user_id'];
+
+        // Validate inputs
+        if ($rating < 1 || $rating > 5) {
+            $reviewError = "Please provide a valid rating between 1 and 5.";
+        } elseif (empty($comment)) {
+            $reviewError = "Please provide a comment for your review.";
+        } else {
+            // Insert review into the database
+            $stmt = $conn->prepare("INSERT INTO reviews (product_id, user_id, rating, comment, created_at) 
+                                    VALUES (:product_id, :user_id, :rating, :comment, NOW())");
+            $stmt->bindParam(':product_id', $product_id);
+            $stmt->bindParam(':user_id', $user_id);
+            $stmt->bindParam(':rating', $rating);
+            $stmt->bindParam(':comment', $comment);
+
+            if ($stmt->execute()) {
+                $reviewSuccess = "Your review has been submitted successfully.";
+                // Refresh reviews
+                $stmt = $conn->prepare("SELECT r.*, u.username 
+                                       FROM reviews r 
+                                       LEFT JOIN users u ON r.user_id = u.id 
+                                       WHERE r.product_id = :product_id 
+                                       ORDER BY r.created_at DESC");
+                $stmt->bindParam(':product_id', $product_id);
+                $stmt->execute();
+                $reviews = $stmt->fetchAll();
+
+                // Recalculate average rating
+                $reviewCount = count($reviews);
+                $totalRating = array_sum(array_column($reviews, 'rating'));
+                $avgRating = $reviewCount > 0 ? $totalRating / $reviewCount : 0;
+            } else {
+                $reviewError = "An error occurred while submitting your review. Please try again.";
+            }
+        }
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -181,9 +227,9 @@ if (isset($_POST['add_to_cart'])) {
                     <div class="flex items-center mb-4">
                         <div class="flex text-yellow-400 mr-2">
                             <?php for ($i = 1; $i <= 5; $i++): ?>
-                                <?php if ($i <= round($product['rating'])): ?>
+                                <?php if ($i <= round($avgRating)): ?>
                                     <i class="fas fa-star"></i>
-                                <?php elseif ($i - 0.5 <= $product['rating']): ?>
+                                <?php elseif ($i - 0.5 <= $avgRating): ?>
                                     <i class="fas fa-star-half-alt"></i>
                                 <?php else: ?>
                                     <i class="far fa-star"></i>
@@ -311,31 +357,25 @@ if (isset($_POST['add_to_cart'])) {
             
             <div id="tab-content-reviews" class="tab-content p-6 hidden">
                 <h2 class="text-xl font-bold mb-4">Customer Reviews</h2>
-                
-                <div class="mb-6">
-                    <div class="flex items-center mb-2">
-                        <div class="text-4xl font-bold mr-4"><?php echo number_format($avgRating, 1); ?></div>
-                        <div>
-                            <div class="flex text-yellow-400 mb-1">
-                                <?php for ($i = 1; $i <= 5; $i++): ?>
-                                    <?php if ($i <= round($avgRating)): ?>
-                                        <i class="fas fa-star"></i>
-                                    <?php elseif ($i - 0.5 <= $avgRating): ?>
-                                        <i class="fas fa-star-half-alt"></i>
-                                    <?php else: ?>
-                                        <i class="far fa-star"></i>
-                                    <?php endif; ?>
-                                <?php endfor; ?>
-                            </div>
-                            <div class="text-sm text-gray-500">Based on <?php echo $reviewCount; ?> reviews</div>
-                        </div>
+
+                <!-- Display success or error messages -->
+                <?php if (isset($reviewSuccess)): ?>
+                    <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 mb-6 rounded relative" role="alert">
+                        <strong class="font-bold">Success!</strong>
+                        <span class="block sm:inline"><?php echo $reviewSuccess; ?></span>
                     </div>
-                </div>
-                
+                <?php elseif (isset($reviewError)): ?>
+                    <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 mb-6 rounded relative" role="alert">
+                        <strong class="font-bold">Error!</strong>
+                        <span class="block sm:inline"><?php echo $reviewError; ?></span>
+                    </div>
+                <?php endif; ?>
+
+                <!-- Review Form -->
                 <?php if (isset($_SESSION['user_id'])): ?>
                 <div class="mb-8 bg-gray-50 p-4 rounded-lg">
                     <h3 class="font-medium mb-4">Write a Review</h3>
-                    <form action="submit_review.php" method="post">
+                    <form action="product_description.php?id=<?php echo $product_id; ?>" method="post">
                         <input type="hidden" name="product_id" value="<?php echo $product_id; ?>">
                         
                         <div class="mb-4">
@@ -361,7 +401,7 @@ if (isset($_POST['add_to_cart'])) {
                             ></textarea>
                         </div>
                         
-                        <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-md transition">
+                        <button type="submit" name="submit_review" class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-md transition">
                             Submit Review
                         </button>
                     </form>
@@ -371,7 +411,7 @@ if (isset($_POST['add_to_cart'])) {
                     <p class="mb-2">Please <a href="login_and_signup/login.php" class="text-blue-500 hover:underline">login</a> to write a review.</p>
                 </div>
                 <?php endif; ?>
-                
+
                 <!-- Reviews List -->
                 <?php if (count($reviews) > 0): ?>
                     <?php foreach ($reviews as $review): ?>
