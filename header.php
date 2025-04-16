@@ -3,6 +3,9 @@
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
+$stmt = $conn->prepare("SELECT * FROM categories ORDER BY name");
+$stmt->execute();
+$categories = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 // Define a default profile image
 $defaultProfileImage = './assets/images/default-profile.png';
@@ -143,12 +146,13 @@ if (isset($_SESSION['user_id'])) {
                 
                 <!-- Search Bar -->
                 <div class="w-full md:w-2/5 mb-4 md:mb-0">
-                    <form action="search.php" method="GET" class="flex">
+                    <form action="search_results.php" method="GET" class="flex">
                         <input 
                             type="search" 
                             name="q" 
                             placeholder="Search product, brand and category" 
                             class="w-full border border-gray-300 rounded-l-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            required
                         />
                         <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-r-md transition">
                             <i class="fas fa-search"></i>
@@ -197,11 +201,11 @@ if (isset($_SESSION['user_id'])) {
                             <i class="fas fa-chevron-down ml-1 text-xs"></i>
                         </a>
                         <ul class="dropdown-menu absolute right-0 w-48 bg-white rounded-md shadow-lg z-10 py-2">
-                            <li><a href="#" class="block px-4 py-2 text-gray-700 hover:bg-blue-100 hover:text-blue-500">Help Center</a></li>
-                            <li><a href="#" class="block px-4 py-2 text-gray-700 hover:bg-blue-100 hover:text-blue-500">Place an Order</a></li>
-                            <li><a href="#" class="block px-4 py-2 text-gray-700 hover:bg-blue-100 hover:text-blue-500">Payment Options</a></li>
-                            <li><a href="#" class="block px-4 py-2 text-gray-700 hover:bg-blue-100 hover:text-blue-500">Track Order</a></li>
-                            <li><a href="#" class="block px-4 py-2 text-gray-700 hover:bg-blue-100 hover:text-blue-500">Returns & Refunds</a></li>
+                            <li><a href="help_center.php" class="block px-4 py-2 text-gray-700 hover:bg-blue-100 hover:text-blue-500">Help Center</a></li>
+                            <li><a href="place_order.php" class="block px-4 py-2 text-gray-700 hover:bg-blue-100 hover:text-blue-500">Place an Order</a></li>
+                            <li><a href="payment_options.php" class="block px-4 py-2 text-gray-700 hover:bg-blue-100 hover:text-blue-500">Payment Options</a></li>
+                            <li><a href="track_order.php" class="block px-4 py-2 text-gray-700 hover:bg-blue-100 hover:text-blue-500">Track Order</a></li>
+                            <li><a href="returns_refunds.php" class="block px-4 py-2 text-gray-700 hover:bg-blue-100 hover:text-blue-500">Returns & Refunds</a></li>
                         </ul>
                     </div>
                     
@@ -232,7 +236,7 @@ if (isset($_SESSION['user_id'])) {
                         <a href="login_and_signup/login.php" class="py-2 px-4 text-gray-700 hover:bg-blue-100 rounded">Login</a>
                         <a href="login_and_signup/signup.php" class="py-2 px-4 text-gray-700 hover:bg-blue-100 rounded">Sign Up</a>
                     <?php endif; ?>
-                    <a href="#" class="py-2 px-4 text-gray-700 hover:bg-blue-100 rounded">Help Center</a>
+                    <a href="help_center.php" class="py-2 px-4 text-gray-700 hover:bg-blue-100 rounded">Help Center</a>
                     <a href="cart.php" class="py-2 px-4 text-gray-700 hover:bg-blue-100 rounded">Cart</a>
                 </div>
             </div>
@@ -243,15 +247,11 @@ if (isset($_SESSION['user_id'])) {
             <div class="container mx-auto px-4">
                 <div class="flex overflow-x-auto scrollbar-hide" style="scrollbar-width: none;">
                     <a href="index.php" class="whitespace-nowrap px-3 py-1 text-sm text-gray-600 hover:text-blue-500">Home</a>
-                    <a href="category.php?id=1" class="whitespace-nowrap px-3 py-1 text-sm text-gray-600 hover:text-blue-500">Electronics</a>
-                    <a href="category.php?id=2" class="whitespace-nowrap px-3 py-1 text-sm text-gray-600 hover:text-blue-500">Fashion</a>
-                    <a href="category.php?id=3" class="whitespace-nowrap px-3 py-1 text-sm text-gray-600 hover:text-blue-500">Home & Living</a>
-                    <a href="category.php?id=4" class="whitespace-nowrap px-3 py-1 text-sm text-gray-600 hover:text-blue-500">Health & Beauty</a>
-                    <a href="category.php?id=5" class="whitespace-nowrap px-3 py-1 text-sm text-gray-600 hover:text-blue-500">Baby Products</a>
-                    <a href="category.php?id=6" class="whitespace-nowrap px-3 py-1 text-sm text-gray-600 hover:text-blue-500">Phones & Tablets</a>
-                    <a href="category.php?id=7" class="whitespace-nowrap px-3 py-1 text-sm text-gray-600 hover:text-blue-500">Computing</a>
-                    <a href="category.php?id=8" class="whitespace-nowrap px-3 py-1 text-sm text-gray-600 hover:text-blue-500">Gaming</a>
-                    <a href="category.php?id=9" class="whitespace-nowrap px-3 py-1 text-sm text-gray-600 hover:text-blue-500">Supermarket</a>
+                    <?php foreach ($categories as $category): ?>
+                        <a href="category_products.php?category_id=<?php echo $category['id']; ?>" class="whitespace-nowrap px-3 py-1 text-sm text-gray-600 hover:text-blue-500">
+                            <?php echo htmlspecialchars($category['name']); ?>
+                        </a>
+                    <?php endforeach; ?>
                 </div>
             </div>
         </div>

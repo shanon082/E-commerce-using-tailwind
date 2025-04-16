@@ -31,6 +31,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         
         // Update local user data
         $user['newsletter'] = $newsletter;
+
+        // Send confirmation email if subscribed
+        if ($newsletter) {
+            $to = $user['email'];
+            $subject = "Newsletter Subscription Confirmation";
+            $message = "Hello " . $user['name'] . ",\n\nThank you for subscribing to our newsletter! You will now receive updates on our latest offers, new products, and promotions.\n\nBest regards,\nTUKOLE Business Team";
+            $headers = "From: no-reply@tukolebusiness.com";
+
+            if (mail($to, $subject, $message, $headers)) {
+                $success .= " A confirmation email has been sent to your email address.";
+            } else {
+                $error = "Your preferences were updated, but we couldn't send a confirmation email.";
+            }
+        }
         
     } catch (Exception $e) {
         $error = "There was a problem updating your preferences. Please try again.";

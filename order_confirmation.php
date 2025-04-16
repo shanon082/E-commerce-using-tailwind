@@ -29,6 +29,35 @@ $stmt = $conn->prepare("SELECT oi.*, p.name, p.image_url FROM order_items oi
 $stmt->bindParam(':order_id', $order_id);
 $stmt->execute();
 $order_items = $stmt->fetchAll();
+
+// Calculate delivery date (e.g., 5 days from now)
+$delivery_date = date('Y-m-d', strtotime('+5 days'));
+
+// Prepare email content
+$order_summary = "Order ID: #" . htmlspecialchars($order['id']) . "\n";
+$order_summary .= "Order Total: $" . number_format($order['total_amount'], 2) . "\n";
+$order_summary .= "Delivery Date: " . $delivery_date . "\n\n";
+$order_summary .= "Order Items:\n";
+
+foreach ($order_items as $item) {
+    $order_summary .= "- " . htmlspecialchars($item['name']) . " (Qty: " . $item['quantity'] . ")\n";
+}
+
+$email_subject = "Order Confirmation - TUKOLE Business";
+$email_message = "Hello " . htmlspecialchars($_SESSION['user_name']) . ",\n\n";
+$email_message .= "Thank you for your order! Here are the details:\n\n";
+$email_message .= $order_summary;
+$email_message .= "\nWe appreciate your business and look forward to serving you again.\n\n";
+$email_message .= "Best regards,\nTUKOLE Business Team";
+
+$email_headers = "From: no-reply@tukolebusiness.com";
+
+// Send email
+if (mail($order['email'], $email_subject, $email_message, $email_headers)) {
+    $email_success = "A confirmation email has been sent to your email address.";
+} else {
+    $email_error = "We couldn't send a confirmation email. Please check your email address.";
+}
 ?>
 
 <!DOCTYPE html>
@@ -48,7 +77,12 @@ $order_items = $stmt->fetchAll();
             <h2 class="text-lg font-medium mb-4">Thank you for your order!</h2>
             <p class="text-gray-700 mb-4">Your order ID is <strong>#<?php echo htmlspecialchars($order['id']); ?></strong>.</p>
             <p class="text-gray-700 mb-4">Order Total: <strong>$<?php echo number_format($order['total_amount'], 2); ?></strong></p>
-
+            <p class="text-gray-700 mb-4">Estimated Delivery Date: <strong><?php echo $delivery_date; ?></strong></p>
+            <?php if (isset($email_success)): ?>
+                <p class="text-green-700 mb-4"><?php echo $email_success; ?></p>
+            <?php elseif (isset($email_error)): ?>
+                <p class="text-red-700 mb-4"><?php echo $email_error; ?></p>
+            <?php endif; ?>
             <h3 class="text-lg font-medium mt-6 mb-4">Order Items</h3>
             <ul class="divide-y divide-gray-200">
                 <?php foreach ($order_items as $item): ?>

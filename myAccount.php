@@ -82,10 +82,6 @@ $orders = $stmt->fetchAll();
                         <h3 class="text-sm text-gray-500 mb-1">Phone Number</h3>
                         <p><?php echo htmlspecialchars($user['phone'] ?? 'Not provided'); ?></p>
                     </div>
-                    <div>
-                        <h3 class="text-sm text-gray-500 mb-1">Password</h3>
-                        <p>••••••••</p>
-                    </div>
                 </div>
             </div>
             

@@ -7,6 +7,8 @@ $stmt = $conn->prepare("SELECT * FROM categories ORDER BY name");
 $stmt->execute();
 $categories = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
+include 'header.php';
+
 // Fetch products by category with average rating
 function fetchProductsByCategory($conn, $categoryId, $limit = 4) {
     $stmt = $conn->prepare("
@@ -51,6 +53,13 @@ $stmt = $conn->prepare("
 ");
 $stmt->execute();
 $latestReviews = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+// Fetch products for the selected category
+$selectedCategoryProducts = [];
+if (isset($_GET['category_id'])) {
+    $categoryId = intval($_GET['category_id']);
+    $selectedCategoryProducts = fetchProductsByCategory($conn, $categoryId, 8);
+}
 ?>
 
 <!DOCTYPE html>
@@ -66,7 +75,6 @@ $latestReviews = $stmt->fetchAll(PDO::FETCH_ASSOC);
 </head>
 
 <body class="bg-gray-100">
-  <?php include 'header.php'; ?>
   
   <!-- Hero Banner Slider -->
   <section class="relative overflow-hidden bg-white">
@@ -116,7 +124,7 @@ $latestReviews = $stmt->fetchAll(PDO::FETCH_ASSOC);
       <h2 class="text-xl md:text-2xl font-bold mb-4">Shop by Categories</h2>
       <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
         <?php foreach ($categories as $category): ?>
-          <a href="category.php?id=<?php echo $category['id']; ?>" class="bg-gray-100 rounded-lg p-4 text-center hover:shadow-md transition">
+          <a href="category_products.php?category_id=<?php echo $category['id']; ?>" class="bg-gray-100 rounded-lg p-4 text-center hover:shadow-md transition">
             <div class="w-12 h-12 mx-auto mb-2 flex items-center justify-center">
               <i class="<?php echo $category['icon']; ?> text-2xl text-blue-500"></i>
             </div>
@@ -165,17 +173,6 @@ $latestReviews = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     <span class="ml-2 text-gray-400 text-xs line-through">$<?php echo number_format($product['old_price'], 2); ?></span>
                   <?php endif; ?>
                 </div>
-                <!-- <div class="flex items-center mt-1 text-yellow-400 text-xs">
-                  <?php ////for ($i = 1; $i <= 5; $i++): ?>
-                    <?php ////if ($i <= round($product['rating'])): ?>
-                      <i class="fas fa-star"></i>
-                    <?php ////elseif ($i - 0.5 <= $product['rating']): ?>
-                      <i class="fas fa-star-half-alt"></i>
-                    <?php // else: ?>
-                      <i class="far fa-star"></i>
-                    <?php ////endif; ?>
-                  <?php //endfor; ?>
-                </div> -->
               </div>
             </a>
             <div class="px-3 pb-3">
@@ -308,6 +305,44 @@ $latestReviews = $stmt->fetchAll(PDO::FETCH_ASSOC);
       </div>
     </div>
   </section>
+
+  <!-- Selected Category Products Section -->
+  <?php if (!empty($selectedCategoryProducts)): ?>
+  <section class="py-8 bg-gray-100">
+      <div class="container mx-auto px-4">
+          <h2 class="text-xl md:text-2xl font-bold mb-6">Products in Selected Category</h2>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+              <?php foreach ($selectedCategoryProducts as $product): ?>
+                  <div class="bg-white rounded-lg border border-gray-200 overflow-hidden hover:shadow-md transition">
+                      <a href="product_description.php?id=<?php echo $product['id']; ?>">
+                          <img src="<?php echo htmlspecialchars($product['image_url']); ?>" alt="<?php echo htmlspecialchars($product['name']); ?>" class="w-full h-40 object-cover" />
+                          <div class="p-3">
+                              <h3 class="text-sm font-medium"><?php echo htmlspecialchars($product['name']); ?></h3>
+                              <div class="flex items-center mt-1">
+                                  <span class="text-blue-500 font-bold">$<?php echo number_format($product['price'], 2); ?></span>
+                                  <?php if ($product['old_price'] > $product['price']): ?>
+                                      <span class="ml-2 text-gray-400 text-xs line-through">$<?php echo number_format($product['old_price'], 2); ?></span>
+                                  <?php endif; ?>
+                              </div>
+                              <div class="flex items-center mt-1 text-yellow-400 text-xs">
+                                  <?php for ($i = 1; $i <= 5; $i++): ?>
+                                      <?php if ($i <= round($product['avg_rating'])): ?>
+                                          <i class="fas fa-star"></i>
+                                      <?php elseif ($i - 0.5 <= $product['avg_rating']): ?>
+                                          <i class="fas fa-star-half-alt"></i>
+                                      <?php else: ?>
+                                          <i class="far fa-star"></i>
+                                      <?php endif; ?>
+                                  <?php endfor; ?>
+                              </div>
+                          </div>
+                      </a>
+                  </div>
+              <?php endforeach; ?>
+          </div>
+      </div>
+  </section>
+  <?php endif; ?>
 
   <!-- About Us Section -->
   <section class="py-8 bg-white">

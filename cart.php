@@ -14,6 +14,18 @@ if (isset($_GET['remove_item']) && isset($_SESSION['cart'][$_GET['remove_item']]
     exit;
 }
 
+// Save item to wishlist
+if (isset($_GET['save_for_later']) && isset($_SESSION['cart'][$_GET['save_for_later']])) {
+    $productId = $_GET['save_for_later'];
+    if (!isset($_SESSION['wishlist'])) {
+        $_SESSION['wishlist'] = [];
+    }
+    $_SESSION['wishlist'][$productId] = $_SESSION['cart'][$productId];
+    unset($_SESSION['cart'][$productId]);
+    header('Location: cart.php');
+    exit;
+}
+
 // Update item quantity
 if (isset($_POST['update_cart'])) {
     foreach ($_POST['quantity'] as $product_id => $quantity) {
@@ -216,7 +228,7 @@ if (!empty($_SESSION['cart'])) {
                                                     <i class="fas fa-trash-alt mr-1"></i> Remove
                                                 </a>
                                                 <a 
-                                                    href="#" 
+                                                    href="cart.php?save_for_later=<?php echo $product_id; ?>" 
                                                     class="text-blue-500 hover:text-blue-700 text-sm flex items-center"
                                                 >
                                                     <i class="far fa-heart mr-1"></i> Save for Later
