@@ -9,6 +9,12 @@ $stmt->bindParam(':id', $categoryId, PDO::PARAM_INT);
 $stmt->execute();
 $category = $stmt->fetch(PDO::FETCH_ASSOC);
 
+// Check if category exists
+if (!$category) {
+    echo "<h1 class='text-center text-red-500 mt-10'>Category not found!</h1>";
+    exit;
+}
+
 // Fetch products under the category
 $stmt = $conn->prepare("
     SELECT p.*, COALESCE(AVG(r.rating), 0) AS avg_rating 
@@ -50,7 +56,7 @@ $reviews = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
   <section class="py-8 bg-white">
     <div class="container mx-auto px-4">
-      <h2 class="text-2xl font-bold mb-6"><?php echo htmlspecialchars($category['name']); ?></h2>
+      <h1 class="text-2xl font-bold mb-6"><?php echo htmlspecialchars($category['name']); ?></h1>
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
         <?php foreach ($products as $product): ?>
           <div class="bg-white rounded-lg border border-gray-200 overflow-hidden hover:shadow-md transition">

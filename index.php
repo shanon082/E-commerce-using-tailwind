@@ -3,7 +3,7 @@ session_start();
 require_once 'db.php';
 
 // Fetch categories
-$stmt = $conn->prepare("SELECT * FROM categories ORDER BY name");
+$stmt = $conn->prepare("SELECT * FROM categories ORDER BY name LIMIT 6");
 $stmt->execute();
 $categories = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
@@ -28,9 +28,9 @@ function fetchProductsByCategory($conn, $categoryId, $limit = 4) {
 }
 
 // Fetch products for specific sections
-$electronicsProducts = fetchProductsByCategory($conn, 1); // Electronics category
-$fashionProducts = fetchProductsByCategory($conn, 2); // Fashion category
-$homeProducts = fetchProductsByCategory($conn, 3); // Home Products category
+$electronicsProducts = fetchProductsByCategory($conn, 7); // Electronics category
+$fashionProducts = fetchProductsByCategory($conn, 8); // Fashion category
+$homeProducts = fetchProductsByCategory($conn, 9); // Home Products category
 
 // Fetch featured products
 $stmt = $conn->prepare("SELECT * FROM products WHERE featured = 1 LIMIT 6");
@@ -194,7 +194,7 @@ if (isset($_GET['category_id'])) {
     <div class="container mx-auto px-4">
       <div class="flex justify-between items-center mb-6">
         <h2 class="text-xl md:text-2xl font-bold">Electronics</h2>
-        <a href="category.php?id=1" class="text-blue-500 hover:underline text-sm">See All</a>
+        <a href="category_products.php?category_id=7" class="text-blue-500 hover:underline text-sm">See All</a>
       </div>
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
         <?php foreach ($electronicsProducts as $product): ?>
@@ -233,7 +233,7 @@ if (isset($_GET['category_id'])) {
     <div class="container mx-auto px-4">
       <div class="flex justify-between items-center mb-6">
         <h2 class="text-xl md:text-2xl font-bold">Fashion</h2>
-        <a href="category.php?id=2" class="text-blue-500 hover:underline text-sm">See All</a>
+        <a href="category_products.php?category_id=8" class="text-blue-500 hover:underline text-sm">See All</a>
       </div>
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
         <?php foreach ($fashionProducts as $product): ?>
@@ -272,7 +272,7 @@ if (isset($_GET['category_id'])) {
     <div class="container mx-auto px-4">
       <div class="flex justify-between items-center mb-6">
         <h2 class="text-xl md:text-2xl font-bold">Home Products</h2>
-        <a href="category.php?id=3" class="text-blue-500 hover:underline text-sm">See All</a>
+        <a href="category_products.php?category_id=9" class="text-blue-500 hover:underline text-sm">See All</a>
       </div>
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
         <?php foreach ($homeProducts as $product): ?>

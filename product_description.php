@@ -89,6 +89,28 @@ if (isset($_POST['add_to_cart'])) {
     }
 }
 
+// Add to wishlist functionality
+if (isset($_POST['add_to_wishlist'])) {
+    // Initialize wishlist if not exists
+    if (!isset($_SESSION['wishlist'])) {
+        $_SESSION['wishlist'] = [];
+    }
+
+    // Add product to wishlist if not already added
+    if (!isset($_SESSION['wishlist'][$product_id])) {
+        $_SESSION['wishlist'][$product_id] = [
+            'id' => $product_id,
+            'name' => $product['name'],
+            'price' => $product['price'],
+            'image' => $product['image_url']
+        ];
+    }
+
+    // Redirect to the same page to prevent form resubmission
+    header('Location: product_description.php?id=' . $product_id . '&wishlist_added=1');
+    exit;
+}
+
 // Handle review submission
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit_review'])) {
     if (!isset($_SESSION['user_id'])) {
@@ -209,6 +231,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit_review'])) {
             </div>
         <?php endif; ?>
 
+        <!-- Success Message for Added to Wishlist -->
+        <?php if (isset($_GET['wishlist_added']) && $_GET['wishlist_added'] == 1): ?>
+            <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 mb-6 rounded relative" role="alert">
+                <strong class="font-bold">Success!</strong>
+                <span class="block sm:inline"> Product added to your wishlist.</span>
+                <a href="wishlist.php" class="underline ml-2">View Wishlist</a>
+            </div>
+        <?php endif; ?>
+
         <!-- Product Details -->
         <div class="bg-white rounded-lg shadow-sm overflow-hidden mb-8">
             <div class="flex flex-col md:flex-row">
@@ -302,7 +333,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit_review'])) {
                             </button>
                             
                             <button 
-                                type="button" 
+                                type="submit" 
+                                name="add_to_wishlist" 
                                 class="border border-blue-500 text-blue-500 hover:bg-blue-50 py-2 px-4 rounded-md transition"
                             >
                                 <i class="far fa-heart"></i>

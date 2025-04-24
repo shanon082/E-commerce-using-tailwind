@@ -2,6 +2,14 @@
 session_start();
 require_once 'db.php';
 
+// Include PHPMailer
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require './login_and_signup/PHPMailer/PHPMailer/PHPMailer.php';
+require './login_and_signup/PHPMailer/PHPMailer/SMTP.php';
+require './login_and_signup/PHPMailer/PHPMailer/Exception.php';
+
 // Check if user is logged in
 if (!isset($_SESSION['user_id'])) {
     // Redirect to login page
@@ -36,13 +44,31 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if ($newsletter) {
             $to = $user['email'];
             $subject = "Newsletter Subscription Confirmation";
-            $message = "Hello " . $user['name'] . ",\n\nThank you for subscribing to our newsletter! You will now receive updates on our latest offers, new products, and promotions.\n\nBest regards,\nTUKOLE Business Team";
-            $headers = "From: no-reply@tukolebusiness.com";
+            $message = "Hello " . $user['username'] . ",\n\nThank you for subscribing to our newsletter! You will now receive updates on our latest offers, new products, and promotions.\n\nBest regards,\nTUKOLE Business Team";
 
-            if (mail($to, $subject, $message, $headers)) {
+            // Initialize PHPMailer
+            $mail = new PHPMailer(true);
+            try {
+                // SMTP configuration
+                $mail->isSMTP();
+                $mail->Host = 'smtp.gmail.com'; // Replace with your SMTP server
+                $mail->SMTPAuth = true;
+                $mail->Username = 'shanonsimon082@gmail.com';  
+                $mail->Password = 'hrga hmmt yhkt wvhj'; 
+                $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+                $mail->Port = 587;
+
+                // Email settings
+                $mail->setFrom('no-reply@tukolebusiness.com', 'TUKOLE Business');
+                $mail->addAddress($to);
+                $mail->Subject = $subject;
+                $mail->Body = $message;
+
+                // Send email
+                $mail->send();
                 $success .= " A confirmation email has been sent to your email address.";
-            } else {
-                $error = "Your preferences were updated, but we couldn't send a confirmation email.";
+            } catch (Exception $e) {
+                $error = "Your preferences were updated, but we couldn't send a confirmation email. Error: " . $mail->ErrorInfo;
             }
         }
         
